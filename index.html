@@ -91,10 +91,19 @@
   .card-accent-bg .card-title{color:rgba(200,220,255,.95)}
   .card-plain .card-body,.card-accent-bg .card-body{font-weight:300;font-size:clamp(12px,.9vw,18px);color:rgba(255,255,255,.55);line-height:1.6}
   .card-accent-bg .card-body{color:rgba(200,215,255,.7)}
-  .statement-card{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:clamp(12px,1.5vh,24px);background:linear-gradient(135deg,rgba(64,140,255,.06),rgba(120,80,255,.04));border:1px solid rgba(100,160,255,.08);border-radius:16px;padding:clamp(20px,3vh,44px)}
-  .statement-card .q{font-weight:300;font-size:clamp(18px,1.6vw,32px);color:rgba(200,220,255,.8);line-height:1.5;font-style:normal;max-width:80%}
-  .statement-card .q strong{color:rgba(210,230,255,.95);font-weight:500}
-  .statement-card .q-src{font-family:"IBM Plex Mono",monospace;font-size:clamp(10px,.6vw,13px);color:rgba(255,255,255,.2);letter-spacing:.12em;margin-top:.5vh}
+  .challenge-item{display:flex;align-items:center;gap:clamp(10px,1vw,20px);padding:clamp(8px,.8vh,16px) clamp(12px,1vw,22px);border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:all .3s}
+  .challenge-item .nb{font-family:"IBM Plex Mono",monospace;font-size:clamp(10px,.6vw,14px);color:rgba(100,160,255,.3);width:clamp(20px,2vw,36px);flex-shrink:0;text-align:right}
+  .challenge-item .txt{font-weight:400;font-size:clamp(14px,1.15vw,24px);color:rgba(255,255,255,.55);line-height:1.4}
+  .challenge-item .txt strong{color:rgba(200,220,255,.85);font-weight:500}
+  .challenge-item.response{background:linear-gradient(135deg,rgba(64,140,255,.08),rgba(120,80,255,.05));border-color:rgba(100,160,255,.12)}
+  .challenge-item.response .txt{color:rgba(200,220,255,.8)}
+  .dashboard-mockup{width:100%;height:100%;border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(135deg,#0d1a33,#141028);border:1px solid rgba(100,160,255,.08);display:flex;flex-direction:column;padding:clamp(8px,1vh,16px);gap:clamp(4px,.4vh,8px)}
+  .dm-header{display:flex;gap:6px;margin-bottom:clamp(4px,.4vh,8px)}
+  .dm-header .dot{width:clamp(6px,.5vw,9px);height:clamp(6px,.5vw,9px);border-radius:50%}
+  .dm-row{display:flex;gap:clamp(4px,.4vw,8px);height:clamp(8px,.7vh,14px);border-radius:3px;background:rgba(100,160,255,.06);overflow:hidden}
+  .dm-row .bar{height:100%;border-radius:3px;background:linear-gradient(90deg,rgba(100,160,255,.2),rgba(120,80,255,.15))}
+  .dm-row .bar.gold{background:linear-gradient(90deg,rgba(255,180,60,.2),rgba(255,120,80,.15))}
+  .dm-label{font-family:"IBM Plex Mono",monospace;font-size:clamp(5px,.35vw,8px);color:rgba(255,255,255,.15);letter-spacing:.1em;text-transform:uppercase}
   .logo-cover-wrap{display:inline-flex;border-radius:16px;overflow:hidden;position:relative}
   .logo-cover-wrap::before{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 80px 30px rgba(10,14,26,.95),0 0 100px 40px rgba(10,14,26,.5);z-index:2;pointer-events:none}
   .logo-cover-wrap .logo-cover{position:relative;z-index:1;display:block;width:clamp(120px,16vw,280px);height:auto}
@@ -170,15 +179,15 @@
 <section class="slide">
   <div class="chrome"><div>挑战 · Challenges</div><div>04 / 14</div></div>
   <div class="label-sm" data-anim>中国高中教育的现实压力</div>
-  <div class="challenge-grid" data-anim>
-    <div class="challenge-card"><div class="label">Challenge 01</div><div class="val">高考竞争加剧，<strong>录取率持续走低</strong></div></div>
-    <div class="challenge-card"><div class="label">Challenge 02</div><div class="val">普通学校<strong>优质师资不足</strong>，教学资源不均</div></div>
-    <div class="challenge-card"><div class="label">Challenge 03</div><div class="val">学生学习动力下降，<strong>被动学习</strong>现象普遍</div></div>
-    <div class="challenge-card"><div class="label">Challenge 04</div><div class="val"><strong>家长焦虑</strong>增加，对教育结果期望更高</div></div>
-    <div class="challenge-card"><div class="label">Challenge 05</div><div class="val">国际教育<strong>成本高</strong>，优质选择有限</div></div>
-    <div class="challenge-card"><div class="label">Challenge 06</div><div class="val">国际路线<strong>政策敏感</strong>，不确定性大</div></div>
-    <div class="challenge-card" style="grid-column:1/2"><div class="label">Challenge 07</div><div class="val">学校<strong>招生压力加大</strong>，亟需差异化定位</div></div>
-    <div class="challenge-card" style="grid-column:2/3;background:linear-gradient(135deg,rgba(64,140,255,.08),rgba(120,80,255,.05));border-color:rgba(100,160,255,.1)"><div class="label" style="color:rgba(130,200,255,.4)">MFA 的回应</div><div class="val" style="color:rgba(200,220,255,.8)"><strong>AI 赋能双轨升学系统</strong> — 用技术破解困局</div></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,.7vh,14px);min-height:0;padding-bottom:1vh">
+    <div class="challenge-item" data-anim><span class="nb">01</span><span class="txt">高考竞争加剧，<strong>录取率持续走低</strong></span></div>
+    <div class="challenge-item" data-anim><span class="nb">02</span><span class="txt">普通学校<strong>优质师资不足</strong>，教学资源不均</span></div>
+    <div class="challenge-item" data-anim><span class="nb">03</span><span class="txt">学生学习动力下降，<strong>被动学习</strong>现象普遍</span></div>
+    <div class="challenge-item" data-anim><span class="nb">04</span><span class="txt"><strong>家长焦虑</strong>增加，对教育结果期望更高</span></div>
+    <div class="challenge-item" data-anim><span class="nb">05</span><span class="txt">国际教育<strong>成本高</strong>，优质选择有限</span></div>
+    <div class="challenge-item" data-anim><span class="nb">06</span><span class="txt">国际路线<strong>政策敏感</strong>，不确定性大</span></div>
+    <div class="challenge-item" data-anim><span class="nb">07</span><span class="txt">学校<strong>招生压力加大</strong>，亟需差异化定位</span></div>
+    <div class="challenge-item response" data-anim><span class="nb" style="color:rgba(130,200,255,.4)">MFA</span><span class="txt"><strong>AI 赋能双轨升学系统</strong> — 用技术破解困局</span></div>
   </div>
   <div class="foot"><div>传统模式下，课程割裂、负担加重、难以持续</div><div>04 / 14</div></div>
 </section>
@@ -212,26 +221,28 @@
 <section class="slide">
   <div class="chrome"><div>对比 · Comparison</div><div>06 / 14</div></div>
   <div class="label-sm" data-anim>传统做法 vs MFA 方案</div>
-  <div class="two-col-cards" data-anim>
-    <div class="card card-plain">
-      <div class="big-num" style="color:rgba(255,255,255,.15)">✕</div>
-      <div class="card-title" style="color:rgba(255,150,120,.7)">传统双轨项目</div>
-      <div class="card-body">
-        <span style="display:block;margin-bottom:8px">国内课程 + 国际课程 <strong style="color:rgba(255,150,120,.6)">简单叠加</strong></span>
-        <span style="display:block;margin-bottom:8px">白天上国内 · 晚上补国际 · <strong style="color:rgba(255,150,120,.6)">学生负担更重</strong></span>
-        <span style="display:block;margin-bottom:8px">两套体系 <strong style="color:rgba(255,150,120,.6)">彼此独立</strong> · 难以协同</span>
-        <span style="display:block">这种模式 <strong style="color:rgba(255,150,120,.6)">很难真正持续</strong></span>
+  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
+    <div class="two-col-cards" style="display:flex;flex-direction:column;gap:clamp(10px,1.2vh,20px)" data-anim>
+      <div class="card card-plain" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,.8vh,14px);padding:clamp(14px,1.8vh,28px);border-radius:14px">
+        <div class="big-num" style="font-size:clamp(20px,2vw,36px);color:rgba(255,255,255,.15)">✕ 传统双轨项目</div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:clamp(4px,.3vh,8px)">
+          <span style="font-weight:300;font-size:clamp(12px,.9vw,18px);color:rgba(255,255,255,.5)">国内 + 国际 <strong style="color:rgba(255,150,120,.6)">简单叠加</strong></span>
+          <span style="font-weight:300;font-size:clamp(12px,.9vw,18px);color:rgba(255,255,255,.5)">白天国内 · 晚上国际 · <strong style="color:rgba(255,150,120,.6)">学生负担更重</strong></span>
+          <span style="font-weight:300;font-size:clamp(12px,.9vw,18px);color:rgba(255,255,255,.5)">两套体系 <strong style="color:rgba(255,150,120,.6)">彼此独立</strong> · <strong style="color:rgba(255,150,120,.6)">难以持续</strong></span>
+        </div>
+      </div>
+      <div class="card card-accent-bg" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,.8vh,14px);padding:clamp(14px,1.8vh,28px);border-radius:14px">
+        <div class="big-num" style="font-size:clamp(20px,2vw,36px);background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">✓ MFA 双轨融合</div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:clamp(4px,.3vh,8px)">
+          <span style="font-weight:400;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.7)"><strong>AI 提升国内效率</strong> → 释放时间</span>
+          <span style="font-weight:400;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.7)">体系不再是加法，而是 <strong style="color:rgba(210,230,255,.95)">乘法</strong></span>
+          <span style="font-weight:400;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.7)">国内提分 + 国际能力 = <strong style="color:rgba(210,230,255,.95)">同步实现</strong></span>
+        </div>
       </div>
     </div>
-    <div class="card card-accent-bg">
-      <div class="big-num">✓</div>
-      <div class="card-title" style="color:rgba(130,200,255,.95)">MFA 双轨融合</div>
-      <div class="card-body">
-        <span style="display:block;margin-bottom:8px"><strong>AI 提升国内课程效率</strong> → 减少重复训练时间</span>
-        <span style="display:block;margin-bottom:8px">释放出的时间用于 <strong>国际能力培养</strong></span>
-        <span style="display:block;margin-bottom:8px">两套体系不再是<strong>加法</strong>，而是<strong>乘法</strong></span>
-        <span style="display:block">国内提分 + 国际能力 = <strong style="color:rgba(210,230,255,.95)">同步实现</strong></span>
-      </div>
+    <div class="img-panel" data-anim>
+      <img src="images/future_education.jpg" alt="Future Education">
+      <div class="overlay"></div>
     </div>
   </div>
   <div class="foot"><div>AI 让双轨从「不可能」变成「可行」</div><div>06 / 14</div></div>
@@ -288,34 +299,59 @@
   <div class="chrome"><div>结构 · Structure</div><div>09 / 14</div></div>
   <div class="label-sm" data-anim>核心一：AI 赋能的国内课程体系</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div class="glass" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;font-size:clamp(14px,1.1vw,22px);color:rgba(130,200,255,.9)">合作伙伴：<strong style="color:rgba(255,210,120,.9)">小鹿爱学</strong></div>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,16px);margin-bottom:.8vh">MFA 已与国内 AI 学习系统合作伙伴达成深度合作，双方共同推进 AI 赋能中国课程教学升级。</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.2vh">
-        <span class="tag">AI 学习系统</span>
-        <span class="tag">学习画像</span>
-        <span class="tag">AI 错题分析</span>
-        <span class="tag">分层教学</span>
-        <span class="tag">个性化学习</span>
-        <span class="tag">AI 学习助手</span>
-        <span class="tag">数据驱动教学</span>
+    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px);min-height:0">
+      <div class="dashboard-mockup" data-anim>
+        <div class="dm-header"><span class="dot" style="background:#ff5e57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="dm-label" style="margin-left:auto">小鹿爱学 · AI 学习系统</span></div>
+        <div style="font-size:clamp(7px,.5vw,11px);color:rgba(255,255,255,.35);font-weight:300;margin-bottom:clamp(2px,.2vh,6px)">学习画像 · <span style="color:rgba(100,160,255,.5)">李同学</span> · 高一 · 数学</div>
+        <div style="display:flex;gap:clamp(8px,.8vw,16px);flex:1">
+          <div style="flex:1;display:flex;flex-direction:column;gap:clamp(3px,.25vh,6px);justify-content:center">
+            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">本周学习进度</span>
+            <div class="dm-row"><div class="bar" style="width:75%"></div></div>
+            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">错题掌握率</span>
+            <div class="dm-row"><div class="bar gold" style="width:62%"></div></div>
+            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">个性化练习完成</span>
+            <div class="dm-row"><div class="bar" style="width:88%"></div></div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:clamp(3px,.25vh,6px);justify-content:center">
+            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">AI 推荐知识点</span>
+            <div style="display:flex;gap:clamp(3px,.2vw,6px);flex-wrap:wrap">
+              <span style="font-size:clamp(6px,.35vw,8px);padding:2px 6px;border-radius:4px;background:rgba(100,160,255,.1);color:rgba(180,210,255,.5)">函数单调性</span>
+              <span style="font-size:clamp(6px,.35vw,8px);padding:2px 6px;border-radius:4px;background:rgba(100,160,255,.1);color:rgba(180,210,255,.5)">指数运算</span>
+              <span style="font-size:clamp(6px,.35vw,8px);padding:2px 6px;border-radius:4px;background:rgba(100,160,255,.1);color:rgba(180,210,255,.5)">三角函数</span>
+            </div>
+            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15);margin-top:auto">AI 助教建议：建议加强函数图像理解</span>
+          </div>
+        </div>
       </div>
-      <div class="highlight-block">
-        <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin:0">目标：<strong>提升学习体验 + 提升高考与学业成果</strong></p>
+      <div class="glass-sm" style="display:flex;flex-wrap:wrap;gap:clamp(4px,.4vw,10px);padding:clamp(8px,.8vh,16px)" data-anim>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">AI 学习系统</span>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">学习画像</span>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">AI 错题分析</span>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">分层教学</span>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">个性化学习</span>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">AI 学习助手</span>
+        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">数据驱动教学</span>
       </div>
     </div>
-    <div class="inner" style="gap:1.5vh;padding:0" data-anim>
-      <div class="glass-accent" style="display:flex;flex-direction:column;gap:.6vh;flex:1;justify-content:center">
-        <div style="font-size:clamp(32px,3.6vw,60px);font-weight:700;background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">提分</div>
-        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">AI 精准辅导，让高考备考更高效</p>
+    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px)" data-anim>
+      <div class="glass" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,.6vh,12px);padding:clamp(14px,1.6vh,26px)">
+        <div class="h-md" style="font-size:clamp(13px,1vw,20px);color:rgba(255,210,120,.9)">小鹿爱学 · 核心优势</div>
+        <ul class="ul" style="gap:clamp(4px,.3vh,6px)">
+          <li style="font-size:clamp(11px,.8vw,16px)"><strong>AI 精准诊断</strong> — 10 分钟定位知识薄弱点</li>
+          <li style="font-size:clamp(11px,.8vw,16px)"><strong>个性化学习路径</strong> — 为每个学生定制方案</li>
+          <li style="font-size:clamp(11px,.8vw,16px)"><strong>智能错题本</strong> — 自动归类 + 举一反三推荐</li>
+          <li style="font-size:clamp(11px,.8vw,16px)"><strong>微视频学习</strong> — 5-10 分钟碎片化高效学习</li>
+          <li style="font-size:clamp(11px,.8vw,16px)"><strong>数据驱动教学</strong> — 教师实时掌握全班学情</li>
+        </ul>
       </div>
-      <div class="glass-accent" style="display:flex;flex-direction:column;gap:.6vh;flex:1;justify-content:center">
-        <div style="font-size:clamp(32px,3.6vw,60px);font-weight:700;background:linear-gradient(135deg,#f0c060,#f09060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">减负</div>
-        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">减少无效刷题，释放时间给国际能力培养</p>
+      <div class="glass-accent" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,.4vh,10px);padding:clamp(14px,1.6vh,26px)">
+        <div class="h-md" style="font-size:clamp(13px,1vw,20px);color:rgba(130,200,255,.9)">实践案例</div>
+        <p class="body-text" style="font-size:clamp(11px,.8vw,16px)">合作学校使用 AI 学习系统后，学生学习效率显著提升，教师得以从重复性批改工作中解放，将更多精力投入 <strong>个性化辅导</strong> 与 <strong>分层教学</strong>。</p>
+        <p class="body-text" style="font-size:clamp(10px,.7vw,14px);color:rgba(255,255,255,.35)">MFA + 小鹿爱学 = AI 赋能国内课程教学升级</p>
       </div>
     </div>
   </div>
-  <div class="foot"><div>双引擎：提升高考成果 + 释放时间给国际能力</div><div>09 / 14</div></div>
+  <div class="foot"><div>双引擎：提升高考成果 + 释放时间给国际能力培养</div><div>09 / 14</div></div>
 </section>
 
 <!-- 10 · 核心结构二：国际能力 -->
@@ -398,38 +434,46 @@
 <section class="slide">
   <div class="chrome"><div>战略 · Strategy</div><div>13 / 14</div></div>
   <div class="label-sm" data-anim>MFA 的真正长期战略</div>
-  <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px);margin-bottom:1.5vh" data-anim>建立 AI 时代的新型学习系统</h2>
-  <p class="body-text" data-anim style="margin-bottom:1.5vh">MFA 的目标并不仅仅是「做国际课程」，而是建立 AI 时代的新型学习系统，探索学校应该如何重新定义学习。</p>
-  <div style="display:flex;flex-direction:column;gap:clamp(6px,.6vh,12px);flex:1;min-height:0;justify-content:center">
-    <div class="pipeline" data-anim>
-      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.5vh;justify-content:center">
-        <div class="step-nb">01</div>
-        <div class="step-title" style="font-size:clamp(11px,.8vw,16px)">AI-native<br>Learning Model</div>
-        <div class="step-desc" style="font-size:clamp(10px,.65vw,13px)">建立原生的 AI 学习模型</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.5vh;justify-content:center">
-        <div class="step-nb">02</div>
-        <div class="step-title" style="font-size:clamp(11px,.8vw,16px)">AI + LMS<br>深度融合</div>
-        <div class="step-desc" style="font-size:clamp(10px,.65vw,13px)">学习系统与 AI 无缝集成</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.5vh;justify-content:center">
-        <div class="step-nb">03</div>
-        <div class="step-title" style="font-size:clamp(11px,.8vw,16px)">学习画像<br>系统</div>
-        <div class="step-desc" style="font-size:clamp(10px,.65vw,13px)">全维度学生数据画像</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.5vh;justify-content:center">
-        <div class="step-nb">04</div>
-        <div class="step-title" style="font-size:clamp(11px,.8vw,16px)">AI Learning<br>Agent</div>
-        <div class="step-desc" style="font-size:clamp(10px,.65vw,13px)">智能代理驱动个性化教学</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.5vh;justify-content:center">
-        <div class="step-nb">05</div>
-        <div class="step-title" style="font-size:clamp(11px,.8vw,16px)">数据驱动<br>教学</div>
-        <div class="step-desc" style="font-size:clamp(10px,.65vw,13px)">让数据真正指导教学决策</div>
+  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
+    <div class="img-panel" data-anim>
+      <img src="images/students_collaboration.jpg" alt="Students Collaboration">
+      <div class="overlay"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px)">
+      <h2 class="h-hero" style="font-size:clamp(18px,2.2vw,40px)" data-anim>建立 AI 时代的<br>新型学习系统</h2>
+      <p class="body-text" style="font-size:clamp(11px,.85vw,17px)" data-anim>MFA 的目标并不仅仅是「做国际课程」，而是建立 AI 时代的新型学习系统，探索学校应该如何重新定义学习。</p>
+      <div style="display:flex;flex-direction:column;gap:clamp(4px,.4vh,10px);flex:1;justify-content:center">
+        <div class="pipeline" data-anim style="gap:clamp(4px,.4vw,10px)">
+          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
+            <div class="step-nb">01</div>
+            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">AI-native<br>Learning Model</div>
+            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">原生 AI 学习模型</div>
+          </div>
+          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
+          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
+            <div class="step-nb">02</div>
+            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">AI + LMS<br>深度融合</div>
+            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">无缝集成</div>
+          </div>
+          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
+          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
+            <div class="step-nb">03</div>
+            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">学习画像<br>系统</div>
+            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">数据画像</div>
+          </div>
+          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
+          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
+            <div class="step-nb">04</div>
+            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">AI Learning<br>Agent</div>
+            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">智能代理</div>
+          </div>
+          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
+          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
+            <div class="step-nb">05</div>
+            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">数据驱动<br>教学</div>
+            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">科学决策</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

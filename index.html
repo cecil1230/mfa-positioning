@@ -184,15 +184,20 @@
 <section class="slide">
   <div class="chrome"><div>挑战 · Challenges</div><div>04 / 14</div></div>
   <div class="label-sm" data-anim>中国高中教育的现实压力</div>
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,.7vh,14px);min-height:0;padding-bottom:1vh">
-    <div class="challenge-item" data-anim><span class="nb">01</span><span class="txt">高考竞争加剧，<strong>录取率持续走低</strong></span></div>
-    <div class="challenge-item" data-anim><span class="nb">02</span><span class="txt">普通学校<strong>优质师资不足</strong>，教学资源不均</span></div>
-    <div class="challenge-item" data-anim><span class="nb">03</span><span class="txt">学生学习动力下降，<strong>被动学习</strong>现象普遍</span></div>
-    <div class="challenge-item" data-anim><span class="nb">04</span><span class="txt"><strong>家长焦虑</strong>增加，对教育结果期望更高</span></div>
-    <div class="challenge-item" data-anim><span class="nb">05</span><span class="txt">国际教育<strong>成本高</strong>，优质选择有限</span></div>
-    <div class="challenge-item" data-anim><span class="nb">06</span><span class="txt">国际路线<strong>政策敏感</strong>，不确定性大</span></div>
-    <div class="challenge-item" data-anim><span class="nb">07</span><span class="txt">学校<strong>招生压力加大</strong>，亟需差异化定位</span></div>
-    <div class="challenge-item response" data-anim><span class="nb" style="color:rgba(130,200,255,.4)">MFA</span><span class="txt"><strong>AI 赋能双轨升学系统</strong> — 用技术破解困局</span></div>
+  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:clamp(4px,.4vh,8px);min-height:0">
+      <div class="challenge-item" data-anim><span class="nb">01</span><span class="txt">高考竞争加剧，<strong>录取率持续走低</strong></span></div>
+      <div class="challenge-item" data-anim><span class="nb">02</span><span class="txt">普通学校<strong>优质师资不足</strong>，教学资源不均</span></div>
+      <div class="challenge-item" data-anim><span class="nb">03</span><span class="txt">学生学习动力下降，<strong>被动学习</strong>现象普遍</span></div>
+      <div class="challenge-item" data-anim><span class="nb">04</span><span class="txt"><strong>家长焦虑</strong>增加，对教育结果期望更高</span></div>
+      <div class="challenge-item" data-anim><span class="nb">05</span><span class="txt">国际教育<strong>成本高</strong>，优质选择有限</span></div>
+      <div class="challenge-item" data-anim><span class="nb">06</span><span class="txt">国际路线<strong>政策敏感</strong>，不确定性大</span></div>
+      <div class="challenge-item" data-anim><span class="nb">07</span><span class="txt">学校<strong>招生压力加大</strong>，亟需差异化定位</span></div>
+      <div class="challenge-item response" data-anim><span class="nb" style="color:rgba(130,200,255,.4)">MFA</span><span class="txt"><strong>AI 赋能双轨升学系统</strong> — 用技术破解困局</span></div>
+    </div>
+    <div class="img-panel" data-anim>
+      <img src="images/ai_tech_abstract.jpg" alt="高考压力">
+    </div>
   </div>
   <div class="foot"><div>传统模式下，课程割裂、负担加重、难以持续</div><div>04 / 14</div></div>
 </section>
@@ -245,9 +250,35 @@
         </div>
       </div>
     </div>
-    <div class="img-panel" data-anim>
-      <img src="images/future_education.jpg" alt="Future Education">
-      <div class="overlay"></div>
+    <div data-anim style="display:flex;align-items:center;justify-content:center;height:100%;min-height:0">
+      <svg viewBox="0 0 400 350" style="width:100%;height:auto">
+        <defs><style>
+          @keyframes dash{to{stroke-dashoffset:0}}
+          .sp{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400;animation:dash 2.8s ease-out forwards}
+          .s1{stroke:rgba(100,160,255,.5);animation-delay:0s}
+          .s2{stroke:rgba(120,220,160,.5);animation-delay:.25s}
+          .s3{stroke:rgba(255,200,80,.5);animation-delay:.5s}
+          .s4{stroke:rgba(200,120,255,.5);animation-delay:.75s}
+          .s5{stroke:rgba(255,140,120,.5);animation-delay:1s}
+          @keyframes pulse{0%,100%{opacity:.3;r:8}50%{opacity:.8;r:12}}
+          .pd{animation:pulse 2.4s ease-in-out infinite}
+        </style></defs>
+        <path class="sp s1" d="M40,80 Q140,60 200,175"/>
+        <path class="sp s2" d="M65,160 Q140,120 200,175"/>
+        <path class="sp s3" d="M65,240 Q140,220 200,175"/>
+        <path class="sp s4" d="M100,300 Q165,260 200,175"/>
+        <path class="sp s5" d="M30,45 Q110,25 200,175"/>
+        <circle class="pd" cx="200" cy="175" r="10" fill="rgba(150,200,255,.5)"/>
+        <circle cx="200" cy="175" r="6" fill="rgba(200,230,255,.9)"/>
+        <text x="25" y="78" fill="rgba(100,160,255,.55)" font-size="12" font-weight="500" font-family="Noto Sans SC,sans-serif">高考路径</text>
+        <text x="50" y="162" fill="rgba(120,220,160,.55)" font-size="12" font-weight="500" font-family="Noto Sans SC,sans-serif">艺考路径</text>
+        <text x="50" y="248" fill="rgba(255,200,80,.55)" font-size="12" font-weight="500" font-family="Noto Sans SC,sans-serif">国际路径</text>
+        <text x="85" y="308" fill="rgba(200,120,255,.55)" font-size="12" font-weight="500" font-family="Noto Sans SC,sans-serif">职教路径</text>
+        <text x="18" y="42" fill="rgba(255,140,120,.55)" font-size="12" font-weight="500" font-family="Noto Sans SC,sans-serif">综合评价</text>
+        <text x="200" y="155" text-anchor="middle" fill="rgba(200,230,255,.9)" font-size="19" font-weight="700" font-family="Noto Sans SC,sans-serif">殊途同归</text>
+        <text x="200" y="200" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="11" font-weight="300" font-family="Noto Sans SC,sans-serif">All Paths Lead to Success</text>
+        <text x="200" y="220" text-anchor="middle" fill="rgba(150,200,255,.5)" font-size="10" font-weight="400" font-family="Noto Sans SC,sans-serif">MFA 让每一条路都走得更远</text>
+      </svg>
     </div>
   </div>
   <div class="foot"><div>AI 让双轨从「不可能」变成「可行」</div><div>06 / 14</div></div>
@@ -304,56 +335,35 @@
   <div class="chrome"><div>结构 · Structure</div><div>09 / 14</div></div>
   <div class="label-sm" data-anim>核心一：AI 赋能的国内课程体系</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px);min-height:0">
-      <div class="dashboard-mockup" data-anim>
-        <div class="dm-header"><span class="dot" style="background:#ff5e57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="dm-label" style="margin-left:auto">小鹿爱学 · AI 学习系统</span></div>
-        <div style="font-size:clamp(7px,.5vw,11px);color:rgba(255,255,255,.35);font-weight:300;margin-bottom:clamp(2px,.2vh,6px)">学习画像 · <span style="color:rgba(100,160,255,.5)">李同学</span> · 高一 · 数学</div>
-        <div style="display:flex;gap:clamp(8px,.8vw,16px);flex:1">
-          <div style="flex:1;display:flex;flex-direction:column;gap:clamp(3px,.25vh,6px);justify-content:center">
-            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">本周学习进度</span>
-            <div class="dm-row"><div class="bar" style="width:75%"></div></div>
-            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">错题掌握率</span>
-            <div class="dm-row"><div class="bar gold" style="width:62%"></div></div>
-            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">个性化练习完成</span>
-            <div class="dm-row"><div class="bar" style="width:88%"></div></div>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;gap:clamp(3px,.25vh,6px);justify-content:center">
-            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15)">AI 推荐知识点</span>
-            <div style="display:flex;gap:clamp(3px,.2vw,6px);flex-wrap:wrap">
-              <span style="font-size:clamp(6px,.35vw,8px);padding:2px 6px;border-radius:4px;background:rgba(100,160,255,.1);color:rgba(180,210,255,.5)">函数单调性</span>
-              <span style="font-size:clamp(6px,.35vw,8px);padding:2px 6px;border-radius:4px;background:rgba(100,160,255,.1);color:rgba(180,210,255,.5)">指数运算</span>
-              <span style="font-size:clamp(6px,.35vw,8px);padding:2px 6px;border-radius:4px;background:rgba(100,160,255,.1);color:rgba(180,210,255,.5)">三角函数</span>
-            </div>
-            <span style="font-size:clamp(7px,.4vw,9px);color:rgba(255,255,255,.15);margin-top:auto">AI 助教建议：建议加强函数图像理解</span>
-          </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(6px,.5vh,12px);min-height:0">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,.4vw,10px);flex:1;min-height:0" data-anim>
+        <div class="glass-sm" style="display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(8px,.7vh,14px)">
+          <span style="font-size:clamp(14px,1vw,20px)">🤖</span>
+          <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.85)">AI 学习系统</span>
+          <span style="font-weight:300;font-size:clamp(8px,.5vw,10px);color:rgba(255,255,255,.35)">10 分钟定位薄弱点</span>
+        </div>
+        <div class="glass-sm" style="display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(8px,.7vh,14px)">
+          <span style="font-size:clamp(14px,1vw,20px)">📊</span>
+          <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.85)">学习画像</span>
+          <span style="font-weight:300;font-size:clamp(8px,.5vw,10px);color:rgba(255,255,255,.35)">精准绘制学习地图</span>
+        </div>
+        <div class="glass-sm" style="display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(8px,.7vh,14px)">
+          <span style="font-size:clamp(14px,1vw,20px)">✏️</span>
+          <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.85)">AI 错题分析</span>
+          <span style="font-weight:300;font-size:clamp(8px,.5vw,10px);color:rgba(255,255,255,.35)">自动归类 + 举一反三</span>
+        </div>
+        <div class="glass-sm" style="display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(8px,.7vh,14px)">
+          <span style="font-size:clamp(14px,1vw,20px)">📈</span>
+          <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.85)">分层教学</span>
+          <span style="font-weight:300;font-size:clamp(8px,.5vw,10px);color:rgba(255,255,255,.35)">因材施教 数据驱动</span>
         </div>
       </div>
-      <div class="glass-sm" style="display:flex;flex-wrap:wrap;gap:clamp(4px,.4vw,10px);padding:clamp(8px,.8vh,16px)" data-anim>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">AI 学习系统</span>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">学习画像</span>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">AI 错题分析</span>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">分层教学</span>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">个性化学习</span>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">AI 学习助手</span>
-        <span class="tag" style="font-size:clamp(9px,.5vw,12px)">数据驱动教学</span>
+      <div class="img-panel" style="flex:0 0 auto;height:clamp(50px,5vh,100px);border:1px dashed rgba(100,160,255,.2)" data-anim>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(9px,.5vw,12px);color:rgba(255,255,255,.12);font-family:'IBM Plex Mono',monospace;letter-spacing:.15em">DeepLeap 主页面截图</div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px)" data-anim>
-      <div class="glass" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,.6vh,12px);padding:clamp(14px,1.6vh,26px)">
-        <div class="h-md" style="font-size:clamp(13px,1vw,20px);color:rgba(255,210,120,.9)">小鹿爱学 · 核心优势</div>
-        <ul class="ul" style="gap:clamp(4px,.3vh,6px)">
-          <li style="font-size:clamp(11px,.8vw,16px)"><strong>AI 精准诊断</strong> — 10 分钟定位知识薄弱点</li>
-          <li style="font-size:clamp(11px,.8vw,16px)"><strong>个性化学习路径</strong> — 为每个学生定制方案</li>
-          <li style="font-size:clamp(11px,.8vw,16px)"><strong>智能错题本</strong> — 自动归类 + 举一反三推荐</li>
-          <li style="font-size:clamp(11px,.8vw,16px)"><strong>微视频学习</strong> — 5-10 分钟碎片化高效学习</li>
-          <li style="font-size:clamp(11px,.8vw,16px)"><strong>数据驱动教学</strong> — 教师实时掌握全班学情</li>
-        </ul>
-      </div>
-      <div class="glass-accent" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,.4vh,10px);padding:clamp(14px,1.6vh,26px)">
-        <div class="h-md" style="font-size:clamp(13px,1vw,20px);color:rgba(130,200,255,.9)">实践案例</div>
-        <p class="body-text" style="font-size:clamp(11px,.8vw,16px)">合作学校使用 AI 学习系统后，学生学习效率显著提升，教师得以从重复性批改工作中解放，将更多精力投入 <strong>个性化辅导</strong> 与 <strong>分层教学</strong>。</p>
-        <p class="body-text" style="font-size:clamp(10px,.7vw,14px);color:rgba(255,255,255,.35)">MFA + 小鹿爱学 = AI 赋能国内课程教学升级</p>
-      </div>
+    <div class="img-panel" style="border:1px dashed rgba(100,160,255,.2)" data-anim>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(9px,.5vw,12px);color:rgba(255,255,255,.12);font-family:'IBM Plex Mono',monospace;letter-spacing:.15em">小鹿爱学截图</div>
     </div>
   </div>
   <div class="foot"><div>双引擎：提升高考成果 + 释放时间给国际能力培养</div><div>09 / 14</div></div>
@@ -364,50 +374,37 @@
   <div class="chrome"><div>结构 · Structure</div><div>10 / 14</div></div>
   <div class="label-sm" data-anim>核心二：MFA 国际能力培养体系</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px);min-height:0">
-      <div class="dashboard-mockup" style="flex:1;background:linear-gradient(135deg,#0d1a33,#1a0f2e);padding:clamp(10px,1.2vh,20px)" data-anim>
-        <div class="dm-header"><span class="dot" style="background:#ff5e57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="dm-label" style="margin-left:auto">MFA 能力培养体系</span></div>
-        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,.4vh,10px);padding:clamp(6px,.5vh,12px) 0">
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(4px,.4vh,8px);border-radius:8px;background:rgba(100,160,255,.06);border:1px solid rgba(100,160,255,.08)">
-            <span style="font-size:clamp(16px,1.6vw,30px)">🌐</span>
-            <span style="font-size:clamp(7px,.45vw,10px);color:rgba(180,210,255,.6);text-align:center;font-weight:400">学术英语</span>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(4px,.4vh,8px);border-radius:8px;background:rgba(100,160,255,.06);border:1px solid rgba(100,160,255,.08)">
-            <span style="font-size:clamp(16px,1.6vw,30px)">🤖</span>
-            <span style="font-size:clamp(7px,.45vw,10px);color:rgba(180,210,255,.6);text-align:center;font-weight:400">AI Literacy</span>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(4px,.4vh,8px);border-radius:8px;background:rgba(100,160,255,.06);border:1px solid rgba(100,160,255,.08)">
-            <span style="font-size:clamp(16px,1.6vw,30px)">🔬</span>
-            <span style="font-size:clamp(7px,.45vw,10px);color:rgba(180,210,255,.6);text-align:center;font-weight:400">科学素养</span>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(4px,.4vh,8px);border-radius:8px;background:rgba(100,160,255,.06);border:1px solid rgba(100,160,255,.08)">
-            <span style="font-size:clamp(16px,1.6vw,30px)">📐</span>
-            <span style="font-size:clamp(7px,.45vw,10px);color:rgba(180,210,255,.6);text-align:center;font-weight:400">PBL 项目</span>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(4px,.4vh,8px);border-radius:8px;background:rgba(100,160,255,.06);border:1px solid rgba(100,160,255,.08)">
-            <span style="font-size:clamp(16px,1.6vw,30px)">💡</span>
-            <span style="font-size:clamp(7px,.45vw,10px);color:rgba(180,210,255,.6);text-align:center;font-weight:400">创新能力</span>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.2vh,4px);padding:clamp(4px,.4vh,8px);border-radius:8px;background:rgba(100,160,255,.06);border:1px solid rgba(100,160,255,.08)">
-            <span style="font-size:clamp(16px,1.6vw,30px)">🎓</span>
-            <span style="font-size:clamp(7px,.45vw,10px);color:rgba(180,210,255,.6);text-align:center;font-weight:400">升学支持</span>
-          </div>
-        </div>
-      </div>
-      <div class="glass-sm" style="text-align:center;padding:clamp(6px,.6vh,12px)" data-anim>
-        <span style="font-size:clamp(10px,.65vw,14px);color:rgba(255,255,255,.2);font-family:'IBM Plex Mono',monospace;letter-spacing:.12em">能力培养全景 · 7 大模块 · 全面覆盖</span>
-      </div>
+    <div class="img-panel" data-anim>
+      <img src="images/future_education.jpg" alt="国际能力">
     </div>
-    <div class="glass-accent" style="display:flex;flex-direction:column;gap:clamp(8px,.7vh,14px);padding:clamp(16px,2vh,32px);overflow-y:auto" data-anim>
-      <div class="h-md" style="font-size:clamp(16px,1.3vw,26px);flex-shrink:0">7 大能力模块详解</div>
-      <div style="display:flex;flex-direction:column;gap:clamp(6px,.5vh,12px)">
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">🌐 国际学术英语</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">面向学术场景的英语实战训练，涵盖论文写作、学术演讲、文献阅读与课堂讨论，帮助学生达到国际大学语言要求。</span></div>
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">🤖 AI Literacy</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">AI 时代的核心素养课程，帮助学生理解 AI 原理、学会与 AI 协作、掌握提示工程与 AI 工具应用。</span></div>
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">🔬 Scientific Literacy</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">培养科学思维与研究方法，通过实验设计、数据分析与科学论证，建立严谨的学术探究能力。</span></div>
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">📐 PBL 项目式学习</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">通过跨学科真实项目，培养学生问题解决、团队协作与研究能力，产出可展示的项目成果与 Portfolio。</span></div>
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">💡 创新能力培养</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">设计思维 + 创客教育结合，鼓励学生从发现问题到原型制作，建立创新自信与动手实践能力。</span></div>
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">🎓 国际升学支持</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">全程升学规划服务，包括选校指导、申请文书辅导、面试培训与签证支持，覆盖新加坡、英、澳、香港等方向。</span></div>
-        <div><span style="font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(200,220,255,.9)">🌍 全球化学习体系</span><br><span style="font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.55);line-height:1.5">跨文化理解、国际交流项目与全球课堂联动，帮助学生在真实国际场景中建立全球化视野与合作能力。</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,.5vh,12px);align-content:start;overflow-y:auto;min-height:0;padding-right:2px" data-anim>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">🌐 国际学术英语</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">学术英语实战训练，论文/演讲/文献/讨论</span>
+      </div>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">🤖 AI Literacy</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">AI 原理理解、AI 协作、提示工程</span>
+      </div>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">🔬 科学素养</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">科学思维、实验设计、数据分析</span>
+      </div>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">📐 PBL 项目式学习</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">跨学科项目、团队协作、Portfolio</span>
+      </div>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">💡 创新能力</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">设计思维 + 创客教育</span>
+      </div>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">🎓 国际升学支持</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">选校/文书/面试/签证全程辅导</span>
+      </div>
+      <div class="glass-sm" style="padding:clamp(6px,.5vh,12px) clamp(8px,.6vw,14px);display:flex;flex-direction:column;gap:clamp(2px,.1vh,4px)">
+        <span style="font-weight:500;font-size:clamp(11px,.7vw,14px);color:rgba(200,220,255,.9)">🌍 全球化学习体系</span>
+        <span style="font-weight:300;font-size:clamp(8px,.55vw,11px);color:rgba(255,255,255,.45);line-height:1.4">跨文化理解、国际交流、全球课堂</span>
       </div>
     </div>
   </div>
@@ -436,6 +433,17 @@
       <div class="glass-sm" data-anim>
         <p class="body-text" style="font-size:clamp(11px,.75vw,15px);margin:0">新加坡拥有成熟的国际合作大学体系：<strong>SIM · Kaplan Singapore · PSB Academy</strong> 以及大量英国、澳洲、爱尔兰大学合作 Pathway。</p>
       </div>
+      <div class="glass-accent" style="padding:clamp(8px,.6vh,14px)" data-anim>
+        <div class="h-md" style="font-size:clamp(11px,.7vw,15px);margin-bottom:clamp(4px,.3vh,6px);color:rgba(130,200,255,.9)">为什么选择新加坡？</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,.3vw,8px)">
+          <div><span style="font-weight:500;font-size:clamp(9px,.55vw,12px);color:rgba(255,255,255,.65)">🎓 世界级教育</span><br><span style="font-weight:300;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.3)">NUS/NTU 全球 top 20，学位国际认可</span></div>
+          <div><span style="font-weight:500;font-size:clamp(9px,.55vw,12px);color:rgba(255,255,255,.65)">🛡️ 安全稳定</span><br><span style="font-weight:300;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.3)">全球最安全国家之一，家长放心</span></div>
+          <div><span style="font-weight:500;font-size:clamp(9px,.55vw,12px);color:rgba(255,255,255,.65)">🌏 多元文化</span><br><span style="font-weight:300;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.3)">中英双语环境，华人文化 + 国际视野</span></div>
+          <div><span style="font-weight:500;font-size:clamp(9px,.55vw,12px);color:rgba(255,255,255,.65)">✈️ 距离近</span><br><span style="font-weight:300;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.3)">飞行 5 小时直达，时区无差</span></div>
+          <div><span style="font-weight:500;font-size:clamp(9px,.55vw,12px);color:rgba(255,255,255,.65)">💰 性价比高</span><br><span style="font-weight:300;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.3)">学费 + 生活费远低于英美澳</span></div>
+          <div><span style="font-weight:500;font-size:clamp(9px,.55vw,12px);color:rgba(255,255,255,.65)">🎯 升学路径灵活</span><br><span style="font-weight:300;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.3)">SIM / Kaplan / PSB 多所大学可选</span></div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="foot"><div>新加坡是路径（Pathway），不是 MFA 的全部身份</div><div>11 / 14</div></div>
@@ -446,32 +454,35 @@
   <div class="chrome"><div>未来 · Future</div><div>12 / 14</div></div>
   <div class="label-sm" data-anim>MFA 的未来路径扩展</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1vh,20px);min-height:0">
+    <div style="display:flex;flex-direction:column;gap:clamp(8px,.6vh,14px);min-height:0">
       <div data-anim>
-        <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px);margin-bottom:1.2vh">不局限于新加坡<br>未来将全面拓展</h2>
-        <div class="glass" style="padding:clamp(10px,1.2vh,20px)">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
-            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🇭🇰 香港方向</span>
-            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🇬🇧 英国方向</span>
-            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🔬 STEM 方向</span>
-            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🤖 AI 科创方向</span>
+        <h2 class="h-hero" style="font-size:clamp(18px,2vw,38px);margin-bottom:.6vh">不局限于新加坡<br>未来将全面拓展</h2>
+        <div class="glass" style="padding:clamp(6px,.6vh,12px)">
+          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px">
+            <span class="tag" style="font-size:clamp(9px,.5vw,11px);padding:3px 10px">🇭🇰 香港方向</span>
+            <span class="tag" style="font-size:clamp(9px,.5vw,11px);padding:3px 10px">🇬🇧 英国方向</span>
+            <span class="tag" style="font-size:clamp(9px,.5vw,11px);padding:3px 10px">🔬 STEM 方向</span>
+            <span class="tag" style="font-size:clamp(9px,.5vw,11px);padding:3px 10px">🤖 AI 科创方向</span>
           </div>
-          <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin:0">「新加坡」是 <strong>入口</strong>，而不是 MFA 的 <strong>终点</strong></p>
+          <p class="body-text" style="font-size:clamp(10px,.6vw,12px);margin:0">「新加坡」是 <strong>入口</strong>，而不是 MFA 的 <strong>终点</strong></p>
         </div>
       </div>
-      <div class="img-panel" style="flex:1;min-height:0;max-height:40%" data-anim>
+      <div class="img-panel" style="flex:1;min-height:0" data-anim>
         <img src="images/innovation_breakthrough.jpg" alt="Innovation">
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.2vh,22px);justify-content:center" data-anim>
-      <div class="h-md" style="font-size:clamp(14px,1.1vw,22px);margin-bottom:clamp(4px,.4vh,8px)">升学案例</div>
-      <div class="glass-sm" style="padding:clamp(12px,1.4vh,24px);display:flex;flex-direction:column;gap:clamp(4px,.4vh,8px)">
-        <span style="display:inline-flex;align-items:center;gap:6px"><span style="font-size:clamp(12px,.8vw,16px)">🎓</span><span style="font-weight:500;font-size:clamp(12px,.8vw,16px);color:rgba(130,200,255,.9)">案例一：上海某合作学校</span></span>
-        <p class="body-text" style="font-size:clamp(10px,.7vw,14px);margin:0">该校引入 MFA AI 学习系统后，高二年级数学平均分提升 <strong>12%</strong>，同时学生在国际学术英语与 PBL 项目中表现显著提升，3 名学生成功获得新加坡 SIM 大学预录取。</p>
+    <div style="display:flex;flex-direction:column;gap:clamp(8px,.6vh,14px);overflow-y:auto;justify-content:center" data-anim>
+      <div class="glass-sm" style="flex-shrink:0;padding:clamp(8px,.6vh,14px);display:flex;flex-direction:column;gap:clamp(2px,.15vh,4px)">
+        <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-size:clamp(10px,.6vw,13px)">🎓</span><span style="font-weight:500;font-size:clamp(10px,.6vw,13px);color:rgba(130,200,255,.9)">案例一：上海某合作学校</span></span>
+        <p class="body-text" style="font-size:clamp(9px,.55vw,12px);margin:0">高二数学平均分提升 <strong>12%</strong>，3 名学生获新加坡 SIM 大学预录取。</p>
       </div>
-      <div class="glass-sm" style="padding:clamp(12px,1.4vh,24px);display:flex;flex-direction:column;gap:clamp(4px,.4vh,8px)">
-        <span style="display:inline-flex;align-items:center;gap:6px"><span style="font-size:clamp(12px,.8vw,16px)">🏫</span><span style="font-weight:500;font-size:clamp(12px,.8vw,16px);color:rgba(255,210,120,.9)">案例二：某地市级重点高中</span></span>
-        <p class="body-text" style="font-size:clamp(10px,.7vw,14px);margin:0">通过 MFA 双轨课程体系，该校实现高考升学率提升 <strong>8%</strong> 的同时，首届双轨班 15 名学生全部获得海外大学录取通知书，涵盖英国、澳洲及新加坡方向。</p>
+      <div class="glass-sm" style="flex-shrink:0;padding:clamp(8px,.6vh,14px);display:flex;flex-direction:column;gap:clamp(2px,.15vh,4px)">
+        <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-size:clamp(10px,.6vw,13px)">🏫</span><span style="font-weight:500;font-size:clamp(10px,.6vw,13px);color:rgba(255,210,120,.9)">案例二：某地市级重点高中</span></span>
+        <p class="body-text" style="font-size:clamp(9px,.55vw,12px);margin:0">高考升学率提升 <strong>8%</strong>，15 人全部获海外大学录取。</p>
+      </div>
+      <div class="glass-sm" style="flex-shrink:0;padding:clamp(8px,.6vh,14px);display:flex;flex-direction:column;gap:clamp(2px,.15vh,4px)">
+        <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-size:clamp(10px,.6vw,13px)">👤</span><span style="font-weight:500;font-size:clamp(10px,.6vw,13px);color:rgba(150,230,180,.9)">案例三：王同学（高三 → 新加坡）</span></span>
+        <p class="body-text" style="font-size:clamp(9px,.55vw,12px);margin:0">中考后选择 MFA 双轨体系，高一利用 AI 系统提升国内成绩，高二转入国际课程，高三成功申请 <strong>新加坡 Kaplan · 澳洲莫多克大学</strong> 商科方向，获 <strong>30%</strong> 奖学金。</p>
       </div>
     </div>
   </div>
@@ -486,54 +497,55 @@
     <div class="img-panel" data-anim>
       <img src="images/students_collaboration.jpg" alt="Students Collaboration">
     </div>
-    <div style="display:flex;flex-direction:column;gap:clamp(6px,.6vh,12px)">
-      <h2 class="h-hero" style="font-size:clamp(18px,2.2vw,40px)" data-anim>建立 AI 时代的<br>新型学习系统</h2>
-      <p class="body-text" style="font-size:clamp(10px,.75vw,15px)" data-anim>MFA 的目标不仅是「做国际课程」，而是建立 AI 时代的新型学习系统，探索学校如何重新定义学习。</p>
-      <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0" data-anim>
-        <svg viewBox="0 0 400 400" style="width:100%;max-width:38vw;height:auto">
-          <defs>
-            <marker id="arrowLoop" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="rgba(100,160,255,.25)"/></marker>
-            <marker id="arrowLoopBack" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="rgba(255,180,60,.2)"/></marker>
-          </defs>
-          <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(100,160,255,.06)" stroke-width="1" stroke-dasharray="4 8"/>
-          <path d="M268,110 L310,148" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
-          <path d="M320,230 L305,278" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
-          <path d="M255,315 L200,330" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
-          <path d="M145,315 L95,278" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
-          <path d="M80,230 L95,190" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
-          <path d="M132,110 L175,90" stroke="rgba(255,180,60,.2)" stroke-width="1.5" marker-end="url(#arrowLoopBack)" fill="none" stroke-dasharray="4 3"/>
-          <g transform="translate(200,95)">
-            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
-            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">01</text>
-            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">AI-native</text>
-            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">Learning Model</text>
-          </g>
-          <g transform="translate(305,168)">
-            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
-            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">02</text>
-            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">AI + LMS</text>
-            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">深度融合</text>
-          </g>
-          <g transform="translate(280,287)">
-            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
-            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">03</text>
-            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">学习画像</text>
-            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">系统</text>
-          </g>
-          <g transform="translate(120,287)">
-            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
-            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">04</text>
-            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">AI Learning</text>
-            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">Agent</text>
-          </g>
-          <g transform="translate(95,168)">
-            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
-            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">05</text>
-            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">数据驱动</text>
-            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">教学</text>
-          </g>
-          <text x="200" y="385" text-anchor="middle" fill="rgba(255,180,60,.2)" font-family="IBM Plex Mono,monospace" font-size="9">闭环持续迭代 →</text>
-        </svg>
+    <div style="display:flex;flex-direction:column;gap:clamp(4px,.3vh,8px);min-height:0">
+      <h2 class="h-hero" style="font-size:clamp(16px,1.8vw,34px)" data-anim>建立 AI 时代的<br>新型学习系统</h2>
+      <p class="body-text" style="font-size:clamp(9px,.6vw,13px)" data-anim>MFA 的目标不仅是「做国际课程」，而是建立 AI 时代的新型学习系统，探索学校如何重新定义学习。</p>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(4px,.3vh,8px)" data-anim>
+        <!-- Top row: 01 → 02 → 03 -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:clamp(4px,.3vw,8px)">
+          <div class="glass-sm" style="padding:clamp(4px,.25vh,8px);text-align:center;width:clamp(55px,5.5vw,95px);flex-shrink:0">
+            <div style="font-family:IBM Plex Mono,monospace;font-size:clamp(7px,.4vw,10px);color:rgba(100,160,255,.3)">01</div>
+            <div style="font-weight:500;font-size:clamp(7px,.4vw,10px);color:rgba(200,220,255,.75);line-height:1.15">AI-native<br>Learning Model</div>
+            <div style="font-weight:300;font-size:clamp(6px,.3vw,8px);color:rgba(255,255,255,.25)">原生 AI 学习模型</div>
+          </div>
+          <div style="color:rgba(100,160,255,.2);font-size:clamp(8px,.5vw,13px);flex-shrink:0">→</div>
+          <div class="glass-sm" style="padding:clamp(4px,.25vh,8px);text-align:center;width:clamp(55px,5.5vw,95px);flex-shrink:0">
+            <div style="font-family:IBM Plex Mono,monospace;font-size:clamp(7px,.4vw,10px);color:rgba(100,160,255,.3)">02</div>
+            <div style="font-weight:500;font-size:clamp(7px,.4vw,10px);color:rgba(200,220,255,.75);line-height:1.15">AI + LMS<br>深度融合</div>
+            <div style="font-weight:300;font-size:clamp(6px,.3vw,8px);color:rgba(255,255,255,.25)">无缝集成</div>
+          </div>
+          <div style="color:rgba(100,160,255,.2);font-size:clamp(8px,.5vw,13px);flex-shrink:0">→</div>
+          <div class="glass-sm" style="padding:clamp(4px,.25vh,8px);text-align:center;width:clamp(55px,5.5vw,95px);flex-shrink:0">
+            <div style="font-family:IBM Plex Mono,monospace;font-size:clamp(7px,.4vw,10px);color:rgba(100,160,255,.3)">03</div>
+            <div style="font-weight:500;font-size:clamp(7px,.4vw,10px);color:rgba(200,220,255,.75);line-height:1.15">学习画像<br>系统</div>
+            <div style="font-weight:300;font-size:clamp(6px,.3vw,8px);color:rgba(255,255,255,.25)">数据画像</div>
+          </div>
+        </div>
+        <!-- Vertical arrows -->
+        <div style="display:flex;justify-content:center;gap:clamp(8px,.6vw,16px);font-size:clamp(8px,.5vw,13px);color:rgba(100,160,255,.15)">
+          <span style="width:clamp(55px,5.5vw,95px);text-align:center">↓</span>
+          <span style="width:clamp(55px,5.5vw,95px);text-align:center">↓</span>
+        </div>
+        <!-- Bottom row: 05 ← 04 -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:clamp(4px,.3vw,8px)">
+          <div class="glass-sm" style="padding:clamp(4px,.25vh,8px);text-align:center;width:clamp(55px,5.5vw,95px);flex-shrink:0">
+            <div style="font-family:IBM Plex Mono,monospace;font-size:clamp(7px,.4vw,10px);color:rgba(100,160,255,.3)">05</div>
+            <div style="font-weight:500;font-size:clamp(7px,.4vw,10px);color:rgba(200,220,255,.75);line-height:1.15">数据驱动<br>教学</div>
+            <div style="font-weight:300;font-size:clamp(6px,.3vw,8px);color:rgba(255,255,255,.25)">科学决策</div>
+          </div>
+          <div style="color:rgba(100,160,255,.2);font-size:clamp(8px,.5vw,13px);flex-shrink:0">←</div>
+          <div class="glass-sm" style="padding:clamp(4px,.25vh,8px);text-align:center;width:clamp(55px,5.5vw,95px);flex-shrink:0">
+            <div style="font-family:IBM Plex Mono,monospace;font-size:clamp(7px,.4vw,10px);color:rgba(100,160,255,.3)">04</div>
+            <div style="font-weight:500;font-size:clamp(7px,.4vw,10px);color:rgba(200,220,255,.75);line-height:1.15">AI Learning<br>Agent</div>
+            <div style="font-weight:300;font-size:clamp(6px,.3vw,8px);color:rgba(255,255,255,.25)">智能代理</div>
+          </div>
+        </div>
+        <!-- Return arrow -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:clamp(4px,.2vw,6px);margin-top:clamp(2px,.15vh,4px)">
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,180,60,.12),rgba(255,180,60,.2),rgba(255,180,60,.12),transparent)"></div>
+          <span style="font-family:IBM Plex Mono,monospace;font-size:clamp(7px,.35vw,9px);color:rgba(255,180,60,.25);white-space:nowrap;letter-spacing:.12em">↻ 闭环持续迭代</span>
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,180,60,.12),rgba(255,180,60,.2),rgba(255,180,60,.12),transparent)"></div>
+        </div>
       </div>
     </div>
   </div>

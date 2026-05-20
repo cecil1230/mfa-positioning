@@ -22,18 +22,19 @@
   .glass-accent{background:linear-gradient(135deg,rgba(64,140,255,.12),rgba(120,80,255,.08));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(100,160,255,.15);border-radius:14px;padding:clamp(14px,2vh,28px)}
   .inner{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2vh,28px);min-height:0;padding:1vh 0}
   .h-hero{font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:clamp(28px,4.2vw,72px);line-height:1.15;letter-spacing:-.01em;background:linear-gradient(135deg,#f0f4ff 0%,#c8d8ff 50%,#a8b8ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .h-statement{font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:clamp(32px,5vw,88px);line-height:1.1;letter-spacing:-.015em;background:linear-gradient(135deg,#f0f4ff 0%,#c8d8ff 50%,#a8b8ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .h-sub{font-weight:400;font-size:clamp(15px,1.6vw,30px);line-height:1.4;color:rgba(255,255,255,.6)}
   .h-md{font-weight:500;font-size:clamp(16px,1.3vw,26px);line-height:1.3;color:rgba(255,255,255,.85)}
   .body-text{font-weight:300;font-size:clamp(13px,1.05vw,20px);line-height:1.65;color:rgba(255,255,255,.65)}
   .body-text strong,.body-text b{color:rgba(180,210,255,.9);font-weight:500}
   .label-sm{font-family:"IBM Plex Mono",monospace;font-size:clamp(9px,.6vw,13px);letter-spacing:.18em;text-transform:uppercase;color:rgba(120,180,255,.5);margin-bottom:.5vh}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,28px)}
-  .grid-2-6-4{display:grid;grid-template-columns:5.5fr 4.5fr;gap:clamp(12px,1.8vw,28px)}
-  .grid-2-4-6{display:grid;grid-template-columns:4.5fr 5.5fr;gap:clamp(12px,1.8vw,28px)}
-  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px,1.5vw,24px)}
+  .grid-2-4-6{display:grid;grid-template-columns:4.5fr 5.5fr;gap:clamp(16px,2vw,32px)}
   .tag{display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(100,160,255,.12);border:1px solid rgba(100,160,255,.2);font-size:clamp(10px,.65vw,14px);color:rgba(180,210,255,.8);letter-spacing:.04em}
   .tag-accent{background:rgba(255,180,60,.12);border-color:rgba(255,180,60,.25);color:rgba(255,210,120,.9)}
-  .logo{height:clamp(48px,4vw,76px);width:auto;display:block}
+  .logo-wrap{display:inline-flex;border-radius:16px;overflow:hidden;position:relative}
+  .logo-wrap::before{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 60px 20px rgba(10,14,26,.95),0 0 80px 30px rgba(10,14,26,.6);z-index:2;pointer-events:none}
+  .logo-wrap .logo{position:relative;z-index:1;display:block;width:clamp(100px,14vw,230px);height:auto}
   .logo-lg{display:block;width:clamp(80px,12vw,200px);height:auto}
   .num-lg{font-size:clamp(32px,4.8vw,80px);font-weight:700;line-height:1;background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .img-wrap{border-radius:12px;overflow:hidden;position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
@@ -70,6 +71,36 @@
   .img-panel{width:100%;height:100%;border-radius:12px;overflow:hidden;position:relative}
   .img-panel img{width:100%;height:100%;object-fit:cover;display:block}
   .img-panel .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,14,26,.5),rgba(10,14,26,.2))}
+  .statement-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:clamp(16px,2.5vh,36px);padding:2vh 0;min-height:0}
+  .statement-wrap .body-text{max-width:70%;font-size:clamp(14px,1.2vw,24px);line-height:1.6}
+  .statement-divider{width:40px;height:2px;background:linear-gradient(90deg,transparent,rgba(100,160,255,.2),transparent)}
+  .statement-sub{font-size:clamp(13px,1vw,20px);color:rgba(255,255,255,.4);font-weight:300;letter-spacing:.08em}
+  .challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,20px);flex:1;min-height:0;padding-bottom:1vh}
+  .challenge-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:clamp(10px,1.2vh,20px);display:flex;flex-direction:column;justify-content:center;transition:all .3s}
+  .challenge-card .label{font-family:"IBM Plex Mono",monospace;font-size:clamp(8px,.45vw,10px);color:rgba(255,255,255,.15);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+  .challenge-card .val{font-weight:400;font-size:clamp(12px,.85vw,17px);color:rgba(255,255,255,.5);line-height:1.4}
+  .challenge-card .val strong{color:rgba(200,220,255,.85);font-weight:500}
+  .two-col-cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.5vw,24px);flex:1;min-height:0;padding-bottom:1vh}
+  .two-col-cards .card{display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.2vh,20px);padding:clamp(16px,2.5vh,38px);border-radius:16px}
+  .card-plain{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+  .card-accent-bg{background:linear-gradient(135deg,rgba(64,140,255,.1),rgba(120,80,255,.06));border:1px solid rgba(100,160,255,.12)}
+  .card-plain .big-num,.card-accent-bg .big-num{font-size:clamp(28px,3.2vw,56px);font-weight:700;line-height:1}
+  .card-plain .big-num{color:rgba(100,160,255,.3)}
+  .card-accent-bg .big-num{background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .card-plain .card-title,.card-accent-bg .card-title{font-weight:500;font-size:clamp(15px,1.2vw,24px);color:rgba(255,255,255,.85)}
+  .card-accent-bg .card-title{color:rgba(200,220,255,.95)}
+  .card-plain .card-body,.card-accent-bg .card-body{font-weight:300;font-size:clamp(12px,.9vw,18px);color:rgba(255,255,255,.55);line-height:1.6}
+  .card-accent-bg .card-body{color:rgba(200,215,255,.7)}
+  .statement-card{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:clamp(12px,1.5vh,24px);background:linear-gradient(135deg,rgba(64,140,255,.06),rgba(120,80,255,.04));border:1px solid rgba(100,160,255,.08);border-radius:16px;padding:clamp(20px,3vh,44px)}
+  .statement-card .q{font-weight:300;font-size:clamp(18px,1.6vw,32px);color:rgba(200,220,255,.8);line-height:1.5;font-style:normal;max-width:80%}
+  .statement-card .q strong{color:rgba(210,230,255,.95);font-weight:500}
+  .statement-card .q-src{font-family:"IBM Plex Mono",monospace;font-size:clamp(10px,.6vw,13px);color:rgba(255,255,255,.2);letter-spacing:.12em;margin-top:.5vh}
+  .logo-cover-wrap{display:inline-flex;border-radius:16px;overflow:hidden;position:relative}
+  .logo-cover-wrap::before{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 80px 30px rgba(10,14,26,.95),0 0 100px 40px rgba(10,14,26,.5);z-index:2;pointer-events:none}
+  .logo-cover-wrap .logo-cover{position:relative;z-index:1;display:block;width:clamp(120px,16vw,280px);height:auto}
+  .logo-closing-wrap{display:inline-flex;border-radius:16px;overflow:hidden;position:relative}
+  .logo-closing-wrap::before{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 100px 40px rgba(10,14,26,.95),0 0 120px 50px rgba(10,14,26,.5);z-index:2;pointer-events:none}
+  .logo-closing-wrap .logo-closing{position:relative;z-index:1;display:block;width:clamp(140px,18vw,320px);height:auto}
 </style>
 </head>
 <body>
@@ -80,7 +111,9 @@
 <!-- 1 · Cover -->
 <section class="slide">
   <div class="cover-center">
-    <img class="logo-lg" src="images/mfa_logo.jpg" alt="MFA" data-anim>
+    <div class="logo-cover-wrap" data-anim>
+      <img class="logo-cover" src="images/mfa_logo.jpg" alt="MFA">
+    </div>
     <div data-anim style="margin-top:1vh">
       <div style="font-size:clamp(11px,.7vw,16px);color:rgba(255,255,255,.3);letter-spacing:.28em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;margin-bottom:1.5vh">从「国际课程」到</div>
       <h1 class="h-hero" style="font-size:clamp(32px,5.6vw,92px);font-weight:900">AI 赋能<br>双轨升学系统</h1>
@@ -114,54 +147,57 @@
   <div class="foot"><div>传统国际课程项目已很难满足学校与家庭的需求</div><div>02 / 14</div></div>
 </section>
 
-<!-- 3 · AI时代的教育变革 -->
+<!-- 3 · AI 时代：教育的根本性变化 -->
 <section class="slide">
   <div class="chrome"><div>变革 · Change</div><div>03 / 14</div></div>
   <div class="label-sm" data-anim>AI 时代 · 教育正在发生根本性变化</div>
-  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div class="glass" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;font-size:clamp(14px,1.1vw,22px)">未来学校的新使命</div>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,16px);margin-bottom:1.2vh">不仅需要帮助学生「考上大学」，更需要帮助学生：</p>
-      <ul class="ul">
-        <li>适应 <strong>AI 时代</strong></li>
-        <li><strong>提升学习效率</strong>，告别无效刷题</li>
-        <li>建立 <strong>未来能力</strong></li>
-        <li>拥有 <strong>全球化竞争力</strong></li>
-        <li>学会与 <strong>AI 协作</strong></li>
-        <li>建立 <strong>终身学习能力</strong></li>
-      </ul>
-    </div>
-    <div class="glass-accent" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;font-size:clamp(14px,1.1vw,22px);color:rgba(255,210,120,.9)">现实挑战</div>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,16px);margin-bottom:1.2vh">中国高中教育正在面临新的压力：</p>
-      <ul class="ul">
-        <li class="li-accent">高考竞争加剧</li>
-        <li class="li-accent">普通学校优质师资不足</li>
-        <li class="li-accent">学生学习动力下降</li>
-        <li class="li-accent">家长焦虑增加</li>
-        <li class="li-accent">国际教育成本高、政策敏感</li>
-        <li class="li-accent">学校招生压力加大</li>
-      </ul>
+  <div class="statement-wrap" data-anim>
+    <div style="font-size:clamp(18px,1.4vw,28px);color:rgba(255,255,255,.35);font-weight:300;letter-spacing:.06em">未来学校不仅需要帮助学生「考上大学」</div>
+    <div class="h-statement" style="font-size:clamp(30px,4.4vw,76px)">更需要帮助学生<br>适应 AI 时代</div>
+    <div class="statement-divider"></div>
+    <div style="display:flex;gap:clamp(12px,1.2vw,24px);flex-wrap:wrap;justify-content:center">
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">提升学习效率</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">建立未来能力</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">全球化竞争力</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">学会与 AI 协作</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">终身学习能力</span>
     </div>
   </div>
   <div class="foot"><div>教育不能再沿用过去的逻辑</div><div>03 / 14</div></div>
 </section>
 
-<!-- 4 · 双轨升学趋势 -->
+<!-- 4 · 现实挑战 -->
 <section class="slide">
-  <div class="chrome"><div>趋势 · Trend</div><div>04 / 14</div></div>
+  <div class="chrome"><div>挑战 · Challenges</div><div>04 / 14</div></div>
+  <div class="label-sm" data-anim>中国高中教育的现实压力</div>
+  <div class="challenge-grid" data-anim>
+    <div class="challenge-card"><div class="label">Challenge 01</div><div class="val">高考竞争加剧，<strong>录取率持续走低</strong></div></div>
+    <div class="challenge-card"><div class="label">Challenge 02</div><div class="val">普通学校<strong>优质师资不足</strong>，教学资源不均</div></div>
+    <div class="challenge-card"><div class="label">Challenge 03</div><div class="val">学生学习动力下降，<strong>被动学习</strong>现象普遍</div></div>
+    <div class="challenge-card"><div class="label">Challenge 04</div><div class="val"><strong>家长焦虑</strong>增加，对教育结果期望更高</div></div>
+    <div class="challenge-card"><div class="label">Challenge 05</div><div class="val">国际教育<strong>成本高</strong>，优质选择有限</div></div>
+    <div class="challenge-card"><div class="label">Challenge 06</div><div class="val">国际路线<strong>政策敏感</strong>，不确定性大</div></div>
+    <div class="challenge-card" style="grid-column:1/2"><div class="label">Challenge 07</div><div class="val">学校<strong>招生压力加大</strong>，亟需差异化定位</div></div>
+    <div class="challenge-card" style="grid-column:2/3;background:linear-gradient(135deg,rgba(64,140,255,.08),rgba(120,80,255,.05));border-color:rgba(100,160,255,.1)"><div class="label" style="color:rgba(130,200,255,.4)">MFA 的回应</div><div class="val" style="color:rgba(200,220,255,.8)"><strong>AI 赋能双轨升学系统</strong> — 用技术破解困局</div></div>
+  </div>
+  <div class="foot"><div>传统模式下，课程割裂、负担加重、难以持续</div><div>04 / 14</div></div>
+</section>
+
+<!-- 5 · 双轨升学的趋势 -->
+<section class="slide">
+  <div class="chrome"><div>趋势 · Trend</div><div>05 / 14</div></div>
   <div class="label-sm" data-anim>为什么「双轨升学」是未来趋势</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="inner" style="gap:1.5vh;padding:0">
-      <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px)" data-anim>越来越多的家庭希望</h2>
+      <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px)" data-anim>高考 + 国际升学并行</h2>
       <div class="glass-accent" style="display:flex;align-items:center;gap:1.2vw;flex-wrap:wrap;padding:clamp(14px,1.8vh,26px);width:fit-content" data-anim>
         <span style="font-size:clamp(26px,3.4vw,56px);font-weight:700;background:linear-gradient(135deg,#f0c060,#f09060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">高考</span>
         <span style="color:rgba(255,255,255,.2);font-size:clamp(20px,2vw,36px);font-weight:200">+</span>
         <span style="font-size:clamp(26px,3.4vw,56px);font-weight:700;background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">国际升学</span>
       </div>
       <div data-anim>
-        <p class="body-text" style="font-size:clamp(12px,.9vw,18px)">「不敢完全放弃高考，<strong>又希望孩子拥有国际发展的可能性</strong>」</p>
-        <p style="font-size:clamp(10px,.6vw,13px);color:rgba(255,255,255,.3);margin-top:.5vh;font-family:'IBM Plex Mono',monospace">—— 这是中国家庭最真实的诉求</p>
+        <p class="body-text" style="font-size:clamp(13px,1vw,20px)">过去，中国学生往往只能二选一：<strong>高考路线</strong>（稳定但竞争激烈）或 <strong>国际路线</strong>（多元但成本高）。</p>
+        <p class="body-text" style="font-size:clamp(13px,1vw,20px);margin-top:1vh">越来越多家庭希望「<strong>既保留高考可能性，又拥有国际发展的空间</strong>」——这就是双轨升学的核心驱动力。</p>
       </div>
     </div>
     <div class="img-panel" data-anim>
@@ -169,72 +205,66 @@
       <div class="overlay"></div>
     </div>
   </div>
-  <div class="foot"><div>双轨并行 = 给孩子多一个选择，多一条出路</div><div>04 / 14</div></div>
+  <div class="foot"><div>双轨并行 = 给孩子多一个选择，多一条出路</div><div>05 / 14</div></div>
 </section>
 
-<!-- 5 · 传统双轨的困境 -->
+<!-- 6 · 传统双轨的困境 vs MFA 方案 -->
 <section class="slide">
-  <div class="chrome"><div>痛点 · Pain Point</div><div>05 / 14</div></div>
-  <div class="label-sm" data-anim>传统双轨项目的核心问题</div>
-  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div class="glass" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;color:rgba(255,150,120,.8)">常见的做法</div>
-      <ul class="ul">
-        <li>白天上 <strong>国内课程</strong>，晚上补 <strong>国际课程</strong></li>
-        <li>两套课程 <strong>相互独立</strong>，彼此割裂</li>
-        <li>学生 <strong>负担更重</strong>，时间被双重挤压</li>
-        <li>教学体系 <strong>各自为政</strong>，师资难以协同</li>
-        <li>国际课程与国内课程 <strong>没有融合</strong></li>
-      </ul>
-      <div class="highlight-block" style="margin-top:1.5vh">
-        <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin:0;color:rgba(255,180,120,.7)">这种模式很难真正持续</p>
+  <div class="chrome"><div>对比 · Comparison</div><div>06 / 14</div></div>
+  <div class="label-sm" data-anim>传统做法 vs MFA 方案</div>
+  <div class="two-col-cards" data-anim>
+    <div class="card card-plain">
+      <div class="big-num" style="color:rgba(255,255,255,.15)">✕</div>
+      <div class="card-title" style="color:rgba(255,150,120,.7)">传统双轨项目</div>
+      <div class="card-body">
+        <span style="display:block;margin-bottom:8px">国内课程 + 国际课程 <strong style="color:rgba(255,150,120,.6)">简单叠加</strong></span>
+        <span style="display:block;margin-bottom:8px">白天上国内 · 晚上补国际 · <strong style="color:rgba(255,150,120,.6)">学生负担更重</strong></span>
+        <span style="display:block;margin-bottom:8px">两套体系 <strong style="color:rgba(255,150,120,.6)">彼此独立</strong> · 难以协同</span>
+        <span style="display:block">这种模式 <strong style="color:rgba(255,150,120,.6)">很难真正持续</strong></span>
       </div>
     </div>
-    <div class="glass-accent" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;color:rgba(130,200,255,.9)">MFA 的解决方案</div>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,16px);margin-bottom:1.2vh"><strong>AI 技术</strong> 的突破，第一次让「双轨融合」真正具备了现实基础：</p>
-      <ul class="ul">
-        <li class="li-accent">用 <strong>AI 提升国内课程学习效率</strong>，减少重复训练时间</li>
-        <li class="li-accent">释放出的时间用于 <strong>国际能力培养</strong></li>
-        <li class="li-accent">两套体系不再是 <strong>加法</strong>，而是 <strong>乘法</strong></li>
-        <li class="li-accent">国内提分 + 国际能力 = <strong>同步实现</strong></li>
-      </ul>
+    <div class="card card-accent-bg">
+      <div class="big-num">✓</div>
+      <div class="card-title" style="color:rgba(130,200,255,.95)">MFA 双轨融合</div>
+      <div class="card-body">
+        <span style="display:block;margin-bottom:8px"><strong>AI 提升国内课程效率</strong> → 减少重复训练时间</span>
+        <span style="display:block;margin-bottom:8px">释放出的时间用于 <strong>国际能力培养</strong></span>
+        <span style="display:block;margin-bottom:8px">两套体系不再是<strong>加法</strong>，而是<strong>乘法</strong></span>
+        <span style="display:block">国内提分 + 国际能力 = <strong style="color:rgba(210,230,255,.95)">同步实现</strong></span>
+      </div>
     </div>
   </div>
-  <div class="foot"><div>AI 让双轨从「不可能」变成「可行」</div><div>05 / 14</div></div>
+  <div class="foot"><div>AI 让双轨从「不可能」变成「可行」</div><div>06 / 14</div></div>
 </section>
 
-<!-- 6 · AI 学习革命 -->
+<!-- 7 · AI 学习革命 -->
 <section class="slide">
-  <div class="chrome"><div>变革 · Revolution</div><div>06 / 14</div></div>
+  <div class="chrome"><div>变革 · Revolution</div><div>07 / 14</div></div>
   <div class="label-sm" data-anim>从「刷题」到「AI 驱动学习」</div>
-  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div class="glass" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;color:rgba(255,255,255,.35);font-weight:300;text-decoration:line-through">学生不再需要</div>
-      <ul class="ul">
-        <li>无限制 <strong>刷题</strong></li>
-        <li><strong>被动</strong> 学习</li>
-        <li>大量 <strong>重复</strong> 训练</li>
-      </ul>
+  <div class="statement-wrap" data-anim>
+    <div class="h-statement" style="font-size:clamp(28px,3.8vw,66px);margin-bottom:1vh">学生不再需要</div>
+    <div style="display:flex;gap:clamp(12px,1vw,20px);flex-wrap:wrap;justify-content:center;margin-bottom:2vh">
+      <span style="font-size:clamp(14px,1.2vw,24px);color:rgba(255,255,255,.2);text-decoration:line-through;font-weight:300">无限制刷题</span>
+      <span style="font-size:clamp(14px,1.2vw,24px);color:rgba(255,255,255,.2);text-decoration:line-through;font-weight:300">被动学习</span>
+      <span style="font-size:clamp(14px,1.2vw,24px);color:rgba(255,255,255,.2);text-decoration:line-through;font-weight:300">大量重复训练</span>
     </div>
-    <div class="glass-accent" data-anim>
-      <div class="h-md" style="margin-bottom:1.2vh;color:rgba(130,200,255,.9)">而是通过 AI 学习系统</div>
-      <ul class="ul">
-        <li class="li-accent"><strong>个性化学习路径</strong> — 因材施教</li>
-        <li class="li-accent"><strong>学习画像</strong> — 全面了解每个学生</li>
-        <li class="li-accent"><strong>AI 助教</strong> — 随时答疑解惑</li>
-        <li class="li-accent"><strong>AI 错题分析</strong> — 精准定位薄弱点</li>
-        <li class="li-accent"><strong>分层教学</strong> — 匹配不同水平</li>
-        <li class="li-accent"><strong>数据驱动教学</strong> — 让决策有据可依</li>
-      </ul>
+    <div class="statement-divider"></div>
+    <div class="h-statement" style="font-size:clamp(28px,3.8vw,66px);margin-top:1vh">而是通过 AI 学习系统</div>
+    <div style="display:flex;gap:clamp(8px,.6vw,14px);flex-wrap:wrap;justify-content:center;max-width:70%">
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">个性化学习路径</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">学习画像</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">AI 助教</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">AI 错题分析</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">分层教学</span>
+      <span class="tag" style="font-size:clamp(11px,.75vw,16px);padding:6px 16px">数据驱动教学</span>
     </div>
   </div>
-  <div class="foot"><div>AI 不是为了替代老师，而是让老师的精力用在最需要的地方</div><div>06 / 14</div></div>
+  <div class="foot"><div>AI 不是为了替代老师，而是让老师的精力用在最需要的地方</div><div>07 / 14</div></div>
 </section>
 
-<!-- 7 · MFA 定位 -->
+<!-- 8 · MFA 定位 -->
 <section class="slide">
-  <div class="chrome"><div>定位 · Positioning</div><div>07 / 14</div></div>
+  <div class="chrome"><div>定位 · Positioning</div><div>08 / 14</div></div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="inner" style="gap:1.8vh;padding:0">
       <div class="label-sm" data-anim>MFA 的真正定位</div>
@@ -250,12 +280,12 @@
       <div class="overlay"></div>
     </div>
   </div>
-  <div class="foot"><div>这是一个更大的战略定位</div><div>07 / 14</div></div>
+  <div class="foot"><div>这是一个更大的战略定位</div><div>08 / 14</div></div>
 </section>
 
-<!-- 8 · 核心结构一：AI 国内课程 -->
+<!-- 9 · 核心结构一：AI 国内课程 -->
 <section class="slide">
-  <div class="chrome"><div>结构 · Structure</div><div>08 / 14</div></div>
+  <div class="chrome"><div>结构 · Structure</div><div>09 / 14</div></div>
   <div class="label-sm" data-anim>核心一：AI 赋能的国内课程体系</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="glass" data-anim>
@@ -271,7 +301,7 @@
         <span class="tag">数据驱动教学</span>
       </div>
       <div class="highlight-block">
-        <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin:0">目标不仅是<strong style="color:rgba(180,210,255,.9)">提升学习体验</strong>，更重要的是<strong style="color:rgba(255,210,120,.9)">提升高考与学业成果</strong>——这是中国学校最核心的现实需求</p>
+        <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin:0">目标：<strong>提升学习体验 + 提升高考与学业成果</strong></p>
       </div>
     </div>
     <div class="inner" style="gap:1.5vh;padding:0" data-anim>
@@ -285,12 +315,12 @@
       </div>
     </div>
   </div>
-  <div class="foot"><div>双引擎：提升高考成果 + 释放时间给国际能力</div><div>08 / 14</div></div>
+  <div class="foot"><div>双引擎：提升高考成果 + 释放时间给国际能力</div><div>09 / 14</div></div>
 </section>
 
-<!-- 9 · 核心结构二：国际能力 -->
+<!-- 10 · 核心结构二：国际能力 -->
 <section class="slide">
-  <div class="chrome"><div>结构 · Structure</div><div>09 / 14</div></div>
+  <div class="chrome"><div>结构 · Structure</div><div>10 / 14</div></div>
   <div class="label-sm" data-anim>核心二：MFA 国际能力培养体系</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="inner" style="gap:1.8vh;padding:0">
@@ -299,22 +329,22 @@
     </div>
     <div class="glass-accent" data-anim>
       <ul class="ul" style="gap:clamp(8px,.7vh,14px)">
-        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>国际学术英语</strong> — 学术场景实战能力</li>
-        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>AI Literacy</strong> — AI 时代的核心素养</li>
+        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>国际学术英语</strong></li>
+        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>AI Literacy</strong> — AI 时代核心素养</li>
         <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>Scientific Literacy</strong> — 科学思维与方法</li>
-        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>PBL 项目式学习</strong> — 解决真实问题</li>
-        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>创新能力培养</strong> — 设计思维 + 创客教育</li>
-        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>国际升学支持</strong> — 全程规划与指导</li>
-        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>全球化学习体系</strong> — 跨文化理解与合作</li>
+        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>PBL 项目式学习</strong></li>
+        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>创新能力培养</strong></li>
+        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>国际升学支持</strong></li>
+        <li class="li-accent" style="font-size:clamp(12px,.9vw,18px)"><strong>全球化学习体系</strong></li>
       </ul>
     </div>
   </div>
-  <div class="foot"><div>帮助学生建立 AI 时代真正需要的全球竞争力</div><div>09 / 14</div></div>
+  <div class="foot"><div>帮助学生建立 AI 时代真正需要的全球竞争力</div><div>10 / 14</div></div>
 </section>
 
-<!-- 10 · 新加坡 -->
+<!-- 11 · 新加坡 -->
 <section class="slide">
-  <div class="chrome"><div>路径 · Pathway</div><div>10 / 14</div></div>
+  <div class="chrome"><div>路径 · Pathway</div><div>11 / 14</div></div>
   <div class="grid-2-4-6" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="img-panel" data-anim>
       <img src="images/singapore_skyline.jpg" alt="Singapore">
@@ -336,22 +366,22 @@
       </div>
     </div>
   </div>
-  <div class="foot"><div>新加坡是路径（Pathway），不是 MFA 的全部身份</div><div>10 / 14</div></div>
+  <div class="foot"><div>新加坡是路径（Pathway），不是 MFA 的全部身份</div><div>11 / 14</div></div>
 </section>
 
-<!-- 11 · 未来路径 -->
+<!-- 12 · 未来路径 -->
 <section class="slide">
-  <div class="chrome"><div>未来 · Future</div><div>11 / 14</div></div>
+  <div class="chrome"><div>未来 · Future</div><div>12 / 14</div></div>
   <div class="label-sm" data-anim>MFA 的未来路径扩展</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="inner" style="gap:1.8vh;padding:0">
       <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px)" data-anim>不局限于新加坡<br>未来将全面拓展</h2>
       <div class="glass" data-anim>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <div class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🇭🇰 香港方向</div>
-          <div class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🇬🇧 英国方向</div>
-          <div class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🔬 STEM 方向</div>
-          <div class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🤖 AI 科创方向</div>
+          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🇭🇰 香港方向</span>
+          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🇬🇧 英国方向</span>
+          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🔬 STEM 方向</span>
+          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🤖 AI 科创方向</span>
         </div>
         <p class="body-text" style="font-size:clamp(11px,.75vw,15px);margin-top:1.2vh">「新加坡」是<strong>入口</strong>，而不是 MFA 的<strong>终点</strong></p>
       </div>
@@ -361,33 +391,7 @@
       <div class="overlay"></div>
     </div>
   </div>
-  <div class="foot"><div>从新加坡出发，连接全球</div><div>11 / 14</div></div>
-</section>
-
-<!-- 12 · 不是传统国际高中 -->
-<section class="slide">
-  <div class="chrome"><div>升维 · Upgrade</div><div>12 / 14</div></div>
-  <div class="label-sm" data-anim>MFA 不是传统国际高中</div>
-  <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div class="glass" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center" data-anim>
-      <div style="font-size:clamp(12px,.8vw,16px);color:rgba(255,255,255,.25);margin-bottom:1vh;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;text-decoration:line-through">另一所国际高中</div>
-      <div style="font-size:clamp(48px,6vw,100px);font-weight:700;color:rgba(255,255,255,.08)">✕</div>
-      <div style="font-size:clamp(16px,1.4vw,26px);color:rgba(255,255,255,.5);font-weight:300;margin-top:1vh">MFA 并不希望成为</div>
-    </div>
-    <div class="glass-accent" style="display:flex;flex-direction:column;justify-content:center" data-anim>
-      <div class="h-md" style="font-size:clamp(18px,1.6vw,30px);margin-bottom:1.5vh;color:rgba(130,200,255,.95)">AI 时代学校升级解决方案</div>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,16px);margin-bottom:1vh">MFA 不仅关注 <strong>国际升学 · GPA · 英语</strong></p>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,16px)">更关注：</p>
-      <ul class="ul" style="margin-top:.5vh">
-        <li class="li-accent" style="font-size:clamp(11px,.8vw,15px)"><strong>AI 时代教学升级</strong> — 从传统课堂到智能课堂</li>
-        <li class="li-accent" style="font-size:clamp(11px,.8vw,15px)"><strong>教师能力升级</strong> — 赋能教师拥抱 AI 工具</li>
-        <li class="li-accent" style="font-size:clamp(11px,.8vw,15px)"><strong>学习系统升级</strong> — AI 驱动的个性化学习</li>
-        <li class="li-accent" style="font-size:clamp(11px,.8vw,15px)"><strong>学校竞争力升级</strong> — 在 AI 时代脱颖而出</li>
-        <li class="li-accent" style="font-size:clamp(11px,.8vw,15px)"><strong>学生成长方式升级</strong> — 重新定义学习</li>
-      </ul>
-    </div>
-  </div>
-  <div class="foot"><div>从「国际课程」到「学校系统性升级解决方案」</div><div>12 / 14</div></div>
+  <div class="foot"><div>从新加坡出发，连接全球</div><div>12 / 14</div></div>
 </section>
 
 <!-- 13 · 长期战略 -->
@@ -435,7 +439,9 @@
 <!-- 14 · 最终定位 / Closing -->
 <section class="slide">
   <div class="cover-center">
-    <img class="logo-lg" src="images/mfa_logo.jpg" alt="MFA" data-anim style="width:clamp(100px,14vw,240px)">
+    <div class="logo-closing-wrap" data-anim>
+      <img class="logo-closing" src="images/mfa_logo.jpg" alt="MFA">
+    </div>
     <div data-anim>
       <h1 class="h-hero" style="font-size:clamp(24px,3.6vw,64px);font-weight:900">AI 赋能双轨升学系统</h1>
       <div class="glass-accent" style="margin-top:2vh;padding:clamp(16px,2vh,32px) clamp(24px,3vw,48px);display:inline-block">

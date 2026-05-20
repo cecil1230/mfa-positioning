@@ -70,7 +70,12 @@
   .cover-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5vh 5vw;gap:2.5vh}
   .img-panel{width:100%;height:100%;border-radius:12px;overflow:hidden;position:relative}
   .img-panel img{width:100%;height:100%;object-fit:cover;display:block}
-  .img-panel .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,14,26,.5),rgba(10,14,26,.2))}
+  .img-panel .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,14,26,.15),rgba(10,14,26,.05))}
+  .loop-ring{position:relative;width:100%;max-width:44vw;aspect-ratio:1;margin:0 auto}
+  .loop-ring .loop-item{position:absolute;width:clamp(72px,8vw,130px);transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:clamp(6px,.6vh,14px);border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(100,160,255,.12);aspect-ratio:1;justify-content:center}
+  .loop-ring .loop-item .i-nb{font-family:"IBM Plex Mono",monospace;font-size:clamp(8px,.5vw,12px);color:rgba(100,160,255,.4)}
+  .loop-ring .loop-item .i-title{font-weight:500;font-size:clamp(8px,.55vw,12px);color:rgba(200,220,255,.85);line-height:1.2}
+  .loop-ring .loop-item .i-desc{font-weight:300;font-size:clamp(6px,.4vw,9px);color:rgba(255,255,255,.35)}
   .statement-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:clamp(16px,2.5vh,36px);padding:2vh 0;min-height:0}
   .statement-wrap .body-text{max-width:70%;font-size:clamp(14px,1.2vw,24px);line-height:1.6}
   .statement-divider{width:40px;height:2px;background:linear-gradient(90deg,transparent,rgba(100,160,255,.2),transparent)}
@@ -441,21 +446,33 @@
   <div class="chrome"><div>未来 · Future</div><div>12 / 14</div></div>
   <div class="label-sm" data-anim>MFA 的未来路径扩展</div>
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
-    <div class="inner" style="gap:1.8vh;padding:0">
-      <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px)" data-anim>不局限于新加坡<br>未来将全面拓展</h2>
-      <div class="glass" data-anim>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🇭🇰 香港方向</span>
-          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🇬🇧 英国方向</span>
-          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🔬 STEM 方向</span>
-          <span class="tag" style="font-size:clamp(11px,.7vw,15px);padding:6px 16px">🤖 AI 科创方向</span>
+    <div style="display:flex;flex-direction:column;gap:clamp(10px,1vh,20px);min-height:0">
+      <div data-anim>
+        <h2 class="h-hero" style="font-size:clamp(20px,2.6vw,48px);margin-bottom:1.2vh">不局限于新加坡<br>未来将全面拓展</h2>
+        <div class="glass" style="padding:clamp(10px,1.2vh,20px)">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🇭🇰 香港方向</span>
+            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🇬🇧 英国方向</span>
+            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🔬 STEM 方向</span>
+            <span class="tag" style="font-size:clamp(10px,.65vw,13px);padding:5px 14px">🤖 AI 科创方向</span>
+          </div>
+          <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin:0">「新加坡」是 <strong>入口</strong>，而不是 MFA 的 <strong>终点</strong></p>
         </div>
-        <p class="body-text" style="font-size:clamp(11px,.75vw,15px);margin-top:1.2vh">「新加坡」是<strong>入口</strong>，而不是 MFA 的<strong>终点</strong></p>
+      </div>
+      <div class="img-panel" style="flex:1;min-height:0;max-height:40%" data-anim>
+        <img src="images/innovation_breakthrough.jpg" alt="Innovation">
       </div>
     </div>
-    <div class="img-panel" data-anim>
-      <img src="images/innovation_breakthrough.jpg" alt="Innovation">
-      <div class="overlay"></div>
+    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.2vh,22px);justify-content:center" data-anim>
+      <div class="h-md" style="font-size:clamp(14px,1.1vw,22px);margin-bottom:clamp(4px,.4vh,8px)">升学案例</div>
+      <div class="glass-sm" style="padding:clamp(12px,1.4vh,24px);display:flex;flex-direction:column;gap:clamp(4px,.4vh,8px)">
+        <span style="display:inline-flex;align-items:center;gap:6px"><span style="font-size:clamp(12px,.8vw,16px)">🎓</span><span style="font-weight:500;font-size:clamp(12px,.8vw,16px);color:rgba(130,200,255,.9)">案例一：上海某合作学校</span></span>
+        <p class="body-text" style="font-size:clamp(10px,.7vw,14px);margin:0">该校引入 MFA AI 学习系统后，高二年级数学平均分提升 <strong>12%</strong>，同时学生在国际学术英语与 PBL 项目中表现显著提升，3 名学生成功获得新加坡 SIM 大学预录取。</p>
+      </div>
+      <div class="glass-sm" style="padding:clamp(12px,1.4vh,24px);display:flex;flex-direction:column;gap:clamp(4px,.4vh,8px)">
+        <span style="display:inline-flex;align-items:center;gap:6px"><span style="font-size:clamp(12px,.8vw,16px)">🏫</span><span style="font-weight:500;font-size:clamp(12px,.8vw,16px);color:rgba(255,210,120,.9)">案例二：某地市级重点高中</span></span>
+        <p class="body-text" style="font-size:clamp(10px,.7vw,14px);margin:0">通过 MFA 双轨课程体系，该校实现高考升学率提升 <strong>8%</strong> 的同时，首届双轨班 15 名学生全部获得海外大学录取通知书，涵盖英国、澳洲及新加坡方向。</p>
+      </div>
     </div>
   </div>
   <div class="foot"><div>从新加坡出发，连接全球</div><div>12 / 14</div></div>
@@ -468,43 +485,55 @@
   <div class="grid-2" style="flex:1;min-height:0;gap:clamp(16px,2vw,32px);padding-bottom:1vh">
     <div class="img-panel" data-anim>
       <img src="images/students_collaboration.jpg" alt="Students Collaboration">
-      <div class="overlay"></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:clamp(8px,.8vh,16px)">
+    <div style="display:flex;flex-direction:column;gap:clamp(6px,.6vh,12px)">
       <h2 class="h-hero" style="font-size:clamp(18px,2.2vw,40px)" data-anim>建立 AI 时代的<br>新型学习系统</h2>
-      <p class="body-text" style="font-size:clamp(11px,.85vw,17px)" data-anim>MFA 的目标并不仅仅是「做国际课程」，而是建立 AI 时代的新型学习系统，探索学校应该如何重新定义学习。</p>
-      <div style="display:flex;flex-direction:column;gap:clamp(4px,.4vh,10px);flex:1;justify-content:center">
-        <div class="pipeline" data-anim style="gap:clamp(4px,.4vw,10px)">
-          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
-            <div class="step-nb">01</div>
-            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">AI-native<br>Learning Model</div>
-            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">原生 AI 学习模型</div>
-          </div>
-          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
-          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
-            <div class="step-nb">02</div>
-            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">AI + LMS<br>深度融合</div>
-            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">无缝集成</div>
-          </div>
-          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
-          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
-            <div class="step-nb">03</div>
-            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">学习画像<br>系统</div>
-            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">数据画像</div>
-          </div>
-          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
-          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
-            <div class="step-nb">04</div>
-            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">AI Learning<br>Agent</div>
-            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">智能代理</div>
-          </div>
-          <div class="flow-arrow" style="font-size:clamp(12px,.8vw,18px)">→</div>
-          <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.4vh;justify-content:center;padding:clamp(8px,.8vh,16px)">
-            <div class="step-nb">05</div>
-            <div class="step-title" style="font-size:clamp(10px,.7vw,14px)">数据驱动<br>教学</div>
-            <div class="step-desc" style="font-size:clamp(9px,.55vw,11px)">科学决策</div>
-          </div>
-        </div>
+      <p class="body-text" style="font-size:clamp(10px,.75vw,15px)" data-anim>MFA 的目标不仅是「做国际课程」，而是建立 AI 时代的新型学习系统，探索学校如何重新定义学习。</p>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0" data-anim>
+        <svg viewBox="0 0 400 400" style="width:100%;max-width:38vw;height:auto">
+          <defs>
+            <marker id="arrowLoop" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="rgba(100,160,255,.25)"/></marker>
+            <marker id="arrowLoopBack" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="rgba(255,180,60,.2)"/></marker>
+          </defs>
+          <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(100,160,255,.06)" stroke-width="1" stroke-dasharray="4 8"/>
+          <path d="M268,110 L310,148" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
+          <path d="M320,230 L305,278" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
+          <path d="M255,315 L200,330" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
+          <path d="M145,315 L95,278" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
+          <path d="M80,230 L95,190" stroke="rgba(100,160,255,.2)" stroke-width="1.5" marker-end="url(#arrowLoop)" fill="none"/>
+          <path d="M132,110 L175,90" stroke="rgba(255,180,60,.2)" stroke-width="1.5" marker-end="url(#arrowLoopBack)" fill="none" stroke-dasharray="4 3"/>
+          <g transform="translate(200,95)">
+            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
+            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">01</text>
+            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">AI-native</text>
+            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">Learning Model</text>
+          </g>
+          <g transform="translate(305,168)">
+            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
+            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">02</text>
+            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">AI + LMS</text>
+            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">深度融合</text>
+          </g>
+          <g transform="translate(280,287)">
+            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
+            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">03</text>
+            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">学习画像</text>
+            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">系统</text>
+          </g>
+          <g transform="translate(120,287)">
+            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
+            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">04</text>
+            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">AI Learning</text>
+            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">Agent</text>
+          </g>
+          <g transform="translate(95,168)">
+            <rect x="-44" y="-44" width="88" height="88" rx="44" fill="rgba(10,14,26,.85)" stroke="rgba(100,160,255,.15)" stroke-width="1"/>
+            <text x="0" y="-12" text-anchor="middle" fill="rgba(100,160,255,.35)" font-family="IBM Plex Mono,monospace" font-size="11">05</text>
+            <text x="0" y="6" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">数据驱动</text>
+            <text x="0" y="20" text-anchor="middle" fill="rgba(200,220,255,.8)" font-family="Noto Sans SC,sans-serif" font-size="10" font-weight="500">教学</text>
+          </g>
+          <text x="200" y="385" text-anchor="middle" fill="rgba(255,180,60,.2)" font-family="IBM Plex Mono,monospace" font-size="9">闭环持续迭代 →</text>
+        </svg>
       </div>
     </div>
   </div>

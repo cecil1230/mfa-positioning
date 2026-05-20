@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MFA · AI赋能双轨升学系统</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden;background:#0a0e1a;font-family:"Inter","Noto Sans SC",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  body{background:radial-gradient(ellipse 140% 80% at 30% 20%,#0f1b3d,transparent),radial-gradient(ellipse 100% 60% at 80% 90%,#1a0f2e,transparent),radial-gradient(ellipse 120% 70% at 50% 50%,#0d1628,transparent),#0a0e1a}
+  #bg-canvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
+  #deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .85s cubic-bezier(.77,0,.175,1);z-index:10;will-change:transform}
+  .slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;padding:5vh 5vw;display:flex;flex-direction:column;overflow:hidden;z-index:1}
+  .chrome{display:flex;justify-content:space-between;align-items:flex-start;font-family:"IBM Plex Mono",monospace;font-size:clamp(9px,.6vw,13px);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);padding:.8vh 0;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:2vh;flex-shrink:0}
+  .chrome div:last-child{opacity:.5;font-size:clamp(8px,.5vw,11px)}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-family:"IBM Plex Mono",monospace;font-size:clamp(9px,.55vw,12px);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);padding-top:1.5vh;border-top:1px solid rgba(255,255,255,.05);flex-shrink:0}
+  .glass{background:rgba(255,255,255,.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(16px,2.2vh,32px)}
+  .glass-sm{background:rgba(255,255,255,.03);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:clamp(12px,1.8vh,24px)}
+  .glass-accent{background:linear-gradient(135deg,rgba(64,140,255,.12),rgba(120,80,255,.08));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(100,160,255,.15);border-radius:14px;padding:clamp(14px,2vh,28px)}
+  .inner{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2vh,28px);min-height:0;padding:1vh 0}
+  .h-hero{font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:clamp(28px,4.2vw,72px);line-height:1.15;letter-spacing:-.01em;background:linear-gradient(135deg,#f0f4ff 0%,#c8d8ff 50%,#a8b8ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .h-sub{font-weight:400;font-size:clamp(15px,1.6vw,30px);line-height:1.4;color:rgba(255,255,255,.6)}
+  .h-md{font-weight:500;font-size:clamp(16px,1.3vw,26px);line-height:1.3;color:rgba(255,255,255,.85)}
+  .body-text{font-weight:300;font-size:clamp(13px,1.05vw,20px);line-height:1.65;color:rgba(255,255,255,.65)}
+  .body-text strong{color:rgba(180,210,255,.9);font-weight:500}
+  .label-sm{font-family:"IBM Plex Mono",monospace;font-size:clamp(9px,.6vw,13px);letter-spacing:.18em;text-transform:uppercase;color:rgba(120,180,255,.5);margin-bottom:.5vh}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,28px)}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px,1.5vw,24px)}
+  .tag{display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(100,160,255,.12);border:1px solid rgba(100,160,255,.2);font-size:clamp(10px,.65vw,14px);color:rgba(180,210,255,.8);letter-spacing:.04em}
+  .tag-accent{background:rgba(255,180,60,.12);border-color:rgba(255,180,60,.25);color:rgba(255,210,120,.9)}
+  .logo{height:clamp(36px,3.2vw,60px);width:auto;display:block}
+  .num-lg{font-size:clamp(32px,4.8vw,80px);font-weight:700;line-height:1;background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .num-unit{font-size:clamp(11px,.7vw,16px);color:rgba(255,255,255,.4);font-weight:300;margin-left:4px}
+  .img-wrap{border-radius:12px;overflow:hidden;position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+  .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+  .img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(100,160,255,.05),rgba(120,80,255,.05));color:rgba(255,255,255,.15);font-family:"IBM Plex Mono",monospace;font-size:clamp(10px,.55vw,14px);letter-spacing:.1em;border:1px dashed rgba(255,255,255,.08);border-radius:12px}
+  .stat-row{display:flex;gap:clamp(16px,2vw,40px);flex-wrap:wrap}
+  .stat-item{display:flex;flex-direction:column;gap:4px}
+  .stat-item .num-lg{font-size:clamp(24px,3.2vw,56px)}
+  .stat-label{font-size:clamp(11px,.7vw,14px);color:rgba(255,255,255,.45)}
+  #nav{position:fixed;left:50%;bottom:2.2vh;transform:translateX(-50%);z-index:30;display:flex;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+  #nav .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .35s ease;border:0;padding:0}
+  #nav .dot:hover{background:rgba(255,255,255,.4)}
+  #nav .dot.active{background:rgba(130,180,255,.9);width:14px;border-radius:999px}
+  #hint{position:fixed;bottom:2.8vh;right:2.8vw;z-index:30;font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);mix-blend-mode:difference}
+  body.low-power #deck{transition:none!important}
+  body.low-power .glass,body.low-power .glass-sm,body.low-power .glass-accent{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(10,14,26,.85)!important}
+  body.low-power *{animation:none!important;transition:none!important}
+  [data-anim]{opacity:1}
+  body.motion-ready [data-anim]{opacity:0}
+  body.low-power.motion-ready [data-anim],body.low-power [data-anim]{opacity:1!important;transform:none!important}
+  .flow-arrow{display:flex;align-items:center;justify-content:center;color:rgba(100,160,255,.3);font-size:clamp(16px,1.2vw,24px)}
+  .pipeline{display:flex;gap:clamp(8px,.8vw,16px);align-items:stretch}
+  .pipeline .step{flex:1;display:flex;flex-direction:column;gap:6px}
+  .pipeline .step .step-nb{font-family:"IBM Plex Mono",monospace;font-size:clamp(10px,.6vw,14px);color:rgba(100,160,255,.4);letter-spacing:.1em}
+  .pipeline .step .step-title{font-weight:500;font-size:clamp(12px,.9vw,18px);color:rgba(255,255,255,.8)}
+  .pipeline .step .step-desc{font-weight:300;font-size:clamp(11px,.75vw,15px);color:rgba(255,255,255,.5);line-height:1.5}
+  .highlight-block{background:linear-gradient(135deg,rgba(64,140,255,.08),rgba(120,80,255,.06));border-left:3px solid rgba(100,160,255,.3);padding:clamp(10px,1.2vh,20px) clamp(14px,1.5vw,28px);border-radius:0 10px 10px 0}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div id="hint">← → · B · ESC</div>
+<div id="deck">
+
+<!-- 1 · Cover -->
+<section class="slide" style="justify-content:center">
+  <div style="position:absolute;top:5vh;right:5vw;z-index:2"><img class="logo" src="images/mfa_logo.jpg" alt="MFA"></div>
+  <div class="inner" style="justify-content:center;text-align:center;align-items:center;gap:3.5vh">
+    <div class="glass-accent" style="display:inline-flex;padding:6px 18px;border-radius:999px;gap:8px" data-anim>
+      <span style="color:rgba(180,210,255,.7);font-size:clamp(10px,.65vw,14px);letter-spacing:.12em">Meridian Future Academy</span>
+    </div>
+    <div data-anim>
+      <div style="font-size:clamp(12px,.8vw,18px);color:rgba(255,255,255,.35);letter-spacing:.24em;text-transform:uppercase;margin-bottom:2vh;font-family:'IBM Plex Mono',monospace">从「国际课程」到</div>
+      <h1 class="h-hero" style="font-size:clamp(30px,5.2vw,88px);font-weight:900">AI 赋能<br>双轨升学系统</h1>
+      <div style="font-size:clamp(16px,1.6vw,32px);color:rgba(255,255,255,.5);font-weight:300;margin-top:1.5vh">MFA 战略定位</div>
+    </div>
+    <div class="glass" style="max-width:60%;padding:clamp(12px,1.8vh,24px) clamp(20px,2.5vw,40px)" data-anim>
+      <p class="body-text" style="text-align:center;margin:0">重新定义中国国际教育的未来</p>
+    </div>
+  </div>
+  <div class="foot" style="border:none;margin-top:0"><div></div><div>— 2026 —</div></div>
+</section>
+
+<!-- 2 · 背景 -->
+<section class="slide">
+  <div class="chrome"><div>背景 · Context</div><div>02 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>中国国际教育的变局</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>过去十年 vs. 今天</h2>
+    <div class="grid-2" style="flex:1;min-height:0">
+      <div class="glass" data-anim>
+        <div class="h-md" style="margin-bottom:1.2vh;font-size:clamp(14px,1.1vw,22px);color:rgba(255,180,120,.8)">过去十年</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:clamp(6px,.6vh,12px)">
+          <li style="font-weight:300;font-size:clamp(12px,.85vw,17px);color:rgba(255,255,255,.55);padding-left:14px;position:relative">• 国际课程、国际高中大量涌现</li>
+          <li style="font-weight:300;font-size:clamp(12px,.85vw,17px);color:rgba(255,255,255,.55);padding-left:14px;position:relative">• 帮助中国学生「走向世界」</li>
+          <li style="font-weight:300;font-size:clamp(12px,.85vw,17px);color:rgba(255,255,255,.55);padding-left:14px;position:relative">• 单一赛道：国际 or 高考</li>
+        </ul>
+      </div>
+      <div class="glass-accent" data-anim>
+        <div class="h-md" style="margin-bottom:1.2vh;font-size:clamp(14px,1.1vw,22px);color:rgba(130,200,255,.9)">今天 · AI 时代</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:clamp(6px,.6vh,12px)">
+          <li style="font-weight:400;font-size:clamp(12px,.85vw,17px);color:rgba(200,220,255,.8);padding-left:14px;position:relative">• 高考竞争加剧，家长焦虑增加</li>
+          <li style="font-weight:400;font-size:clamp(12px,.85vw,17px);color:rgba(200,220,255,.8);padding-left:14px;position:relative">• 国际教育成本高、政策敏感</li>
+          <li style="font-weight:400;font-size:clamp(12px,.85vw,17px);color:rgba(200,220,255,.8);padding-left:14px;position:relative">• 新需求：<strong style="color:rgba(180,210,255,.95)">双轨并行 · 双向选择</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>传统国际课程项目已很难满足学校与家庭的需求</div><div>02 / 12</div></div>
+</section>
+
+<!-- 3 · 双轨趋势 -->
+<section class="slide">
+  <div class="chrome"><div>趋势 · Trend</div><div>03 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>为什么是双轨升学</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>越来越多的家庭希望</h2>
+    <div class="grid-2" style="flex:1;min-height:0">
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center" data-anim>
+        <div style="display:flex;align-items:center;gap:1.2vw;flex-wrap:wrap">
+          <span class="num-lg" style="font-size:clamp(28px,4vw,64px)">高考</span>
+          <span style="color:rgba(255,255,255,.2);font-size:clamp(20px,2vw,36px);font-weight:200">+</span>
+          <span class="num-lg" style="font-size:clamp(28px,4vw,64px)">国际升学</span>
+        </div>
+        <p class="body-text">「不敢完全放弃高考，又希望孩子拥有国际发展的可能性」<br><span style="color:rgba(255,255,255,.35);font-size:clamp(11px,.7vw,14px)">—— 这是中国家庭最真实的诉求</span></p>
+      </div>
+      <div class="glass-sm" style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center" data-anim>
+        <div class="stat-row" style="justify-content:space-around">
+          <div class="stat-item" style="align-items:center"><span class="num-lg">86%</span><span class="stat-label">家长希望双轨选择</span></div>
+          <div class="stat-item" style="align-items:center"><span class="num-lg">2.3×</span><span class="stat-label">双轨学校咨询增长</span></div>
+        </div>
+        <p class="body-text" style="font-size:clamp(11px,.7vw,15px);text-align:center">双轨升学 / 双轨融合 — 成为不可忽视的教育趋势</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>传统「双轨」往往只是白天国内 + 晚上国际，体系割裂</div><div>03 / 12</div></div>
+</section>
+
+<!-- 4 · AI 时代双轨可行 -->
+<section class="slide">
+  <div class="chrome"><div>洞察 · Insight</div><div>04 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>AI 让双轨融合真正可行</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>用 AI 提升国内课程效率</h2>
+    <p class="body-text" style="max-width:70%" data-anim>为国际能力培养 <strong style="color:rgba(180,210,255,.9)">释放时间与空间</strong></p>
+    <div class="grid-3" style="flex:1;min-height:0">
+      <div class="glass-sm" style="display:flex;flex-direction:column;gap:.8vh" data-anim>
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">01</div>
+        <div class="h-md" style="font-size:clamp(13px,1vw,20px)">AI 学习系统</div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">个性化学习路径 · 学习画像 · 数据驱动教学</p>
+      </div>
+      <div class="glass-sm" style="display:flex;flex-direction:column;gap:.8vh" data-anim>
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">02</div>
+        <div class="h-md" style="font-size:clamp(13px,1vw,20px)">AI 助教 + 错题分析</div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">分层教学 · 精准提分 · 减少无效刷题</p>
+      </div>
+      <div class="glass-sm" style="display:flex;flex-direction:column;gap:.8vh" data-anim>
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">03</div>
+        <div class="h-md" style="font-size:clamp(13px,1vw,20px)">释放时间 → 国际能力</div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">学术英语 · AI Literacy · PBL · 创新思维</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>AI 技术第一次让「双轨融合」具备了现实基础</div><div>04 / 12</div></div>
+</section>
+
+<!-- 5 · MFA 定位 -->
+<section class="slide">
+  <div class="chrome"><div>定位 · Positioning</div><div>05 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>MFA 的核心定位</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3.2vw,56px)" data-anim>不是「国际课程」<br>而是「AI 赋能双轨升学系统」</h2>
+    <div class="grid-2" style="flex:1;min-height:0">
+      <div class="glass" style="display:flex;align-items:center;justify-content:center" data-anim>
+        <div style="text-align:center">
+          <div style="font-size:clamp(24px,3.2vw,56px);font-weight:700;background:linear-gradient(135deg,rgba(255,180,60,.8),rgba(255,120,80,.8));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">不再只是</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.2vw,24px);color:rgba(255,255,255,.3);margin-top:.8vh;letter-spacing:.05em;text-decoration:line-through">「再做一个国际班」</div>
+        </div>
+      </div>
+      <div class="glass-accent" style="display:flex;align-items:center;justify-content:center" data-anim>
+        <div style="text-align:center">
+          <div style="font-size:clamp(24px,3.2vw,56px);font-weight:700;background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">而是</div>
+          <div style="font-size:clamp(14px,1.2vw,24px);color:rgba(200,220,255,.8);margin-top:.8vh">AI 赋能 · 双轨升学系统</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>这是一个更大的战略定位</div><div>05 / 12</div></div>
+</section>
+
+<!-- 6 · 核心结构总览 -->
+<section class="slide">
+  <div class="chrome"><div>结构 · Structure</div><div>06 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>MFA 双核心体系</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>AI 国内课程 + 国际能力培养</h2>
+    <div class="grid-2" style="flex:1;min-height:0">
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center" data-anim>
+        <div class="tag" style="display:inline-flex;width:fit-content">核心一</div>
+        <div class="h-md" style="font-size:clamp(15px,1.2vw,24px);color:rgba(130,200,255,.9)">AI 赋能的国内课程体系</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:clamp(4px,.4vh,8px)">
+          <li style="font-weight:300;font-size:clamp(11px,.85vw,16px);color:rgba(255,255,255,.55);padding-left:14px">• 合作：<strong style="color:rgba(255,255,255,.8)">小鹿爱学</strong> AI 学习系统</li>
+          <li style="font-weight:300;font-size:clamp(11px,.85vw,16px);color:rgba(255,255,255,.55);padding-left:14px">• 学习画像 · AI 错题分析 · 分层教学</li>
+          <li style="font-weight:300;font-size:clamp(11px,.85vw,16px);color:rgba(255,255,255,.55);padding-left:14px">• 目标：<strong style="color:rgba(255,255,255,.8)">提升高考与学业成果</strong></li>
+        </ul>
+      </div>
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center" data-anim>
+        <div class="tag tag-accent" style="display:inline-flex;width:fit-content">核心二</div>
+        <div class="h-md" style="font-size:clamp(15px,1.2vw,24px);color:rgba(255,210,120,.9)">国际能力培养体系</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:clamp(4px,.4vh,8px)">
+          <li style="font-weight:300;font-size:clamp(11px,.85vw,16px);color:rgba(255,255,255,.55);padding-left:14px">• 国际学术英语 · AI Literacy</li>
+          <li style="font-weight:300;font-size:clamp(11px,.85vw,16px);color:rgba(255,255,255,.55);padding-left:14px">• Scientific Literacy · PBL 项目式学习</li>
+          <li style="font-weight:300;font-size:clamp(11px,.85vw,16px);color:rgba(255,255,255,.55);padding-left:14px">• 目标：<strong style="color:rgba(255,255,255,.8)">AI 时代未来能力</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>双引擎驱动：提分 + 能力，一个都不能少</div><div>06 / 12</div></div>
+</section>
+
+<!-- 7 · 新加坡优势 -->
+<section class="slide">
+  <div class="chrome"><div>路径 · Pathway</div><div>07 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>为什么是新加坡</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>亚洲最适合中国家庭的<br>国际升学方向</h2>
+    <div class="grid-2" style="flex:1;min-height:0">
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.2vh;justify-content:center" data-anim>
+        <div class="stat-row" style="justify-content:space-between">
+          <div class="stat-item"><span class="num-lg">安全稳定</span></div>
+          <div class="stat-item"><span class="num-lg" style="background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">英语环境</span></div>
+        </div>
+        <div class="stat-row" style="justify-content:space-between">
+          <div class="stat-item"><span class="num-lg" style="font-size:clamp(18px,2vw,38px)">华人文化</span></div>
+          <div class="stat-item"><span class="num-lg" style="font-size:clamp(18px,2vw,38px)">国际认可学历</span></div>
+        </div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px);margin-top:.5vh">高性价比 · 距离中国近 · 合作大学体系成熟</p>
+      </div>
+      <div class="glass-sm" style="display:flex;flex-direction:column;gap:.8vh;justify-content:center" data-anim>
+        <div class="h-md" style="font-size:clamp(13px,1vw,20px);margin-bottom:.5vh">合作大学网络</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag">SIM</span>
+          <span class="tag">Kaplan Singapore</span>
+          <span class="tag">PSB Academy</span>
+          <span class="tag">英国大学</span>
+          <span class="tag">澳洲大学</span>
+          <span class="tag">爱尔兰大学</span>
+        </div>
+        <p class="body-text" style="font-size:clamp(11px,.7vw,14px);margin-top:auto">新加坡是 <strong style="color:rgba(180,210,255,.9)">路径（Pathway）</strong><br>不是 MFA 的全部身份</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>未来还将扩展：香港 · 英国 · STEM · AI 科创</div><div>07 / 12</div></div>
+</section>
+
+<!-- 8 · 不是传统国际高中 -->
+<section class="slide">
+  <div class="chrome"><div>升维 · Upgrade</div><div>08 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>MFA 不是传统国际高中</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>是 AI 时代学校升级解决方案</h2>
+    <div class="grid-2" style="flex:1;min-height:0">
+      <div class="glass" style="display:flex;align-items:center;justify-content:center" data-anim>
+        <div style="text-align:center">
+          <div style="font-size:clamp(14px,1vw,22px);color:rgba(255,255,255,.3);margin-bottom:.8vh;font-family:'IBM Plex Mono',monospace;text-decoration:line-through">另一所国际高中</div>
+          <div class="num-lg" style="font-size:clamp(48px,6vw,100px)">×</div>
+        </div>
+      </div>
+      <div class="glass-accent" style="display:flex;flex-direction:column;gap:.8vh;justify-content:center" data-anim>
+        <div style="display:flex;gap:clamp(6px,.6vw,14px);flex-wrap:wrap">
+          <span class="tag">教学升级</span>
+          <span class="tag">教师能力升级</span>
+          <span class="tag">学习系统升级</span>
+          <span class="tag">学校竞争力升级</span>
+          <span class="tag">学生成长方式升级</span>
+        </div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px);margin-top:.5vh">MFA 不仅关注 GPA 和英语<br>更关注 AI 时代学校的<strong style="color:rgba(180,210,255,.9)">系统性升级</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>从「国际课程」到「学校升级解决方案」</div><div>08 / 12</div></div>
+</section>
+
+<!-- 9 · 长期战略 -->
+<section class="slide">
+  <div class="chrome"><div>战略 · Strategy</div><div>09 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>MFA 的长期目标</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3.2vw,56px)" data-anim>建立 AI 时代的新型学习系统</h2>
+    <div class="pipeline" style="flex:1;min-height:0" data-anim>
+      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.6vh;justify-content:center">
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">01</div>
+        <div class="step-title" style="font-weight:500;font-size:clamp(12px,.9vw,18px)">AI-native<br>Learning Model</div>
+        <div class="step-desc" style="font-weight:300;font-size:clamp(11px,.7vw,14px);color:rgba(255,255,255,.5)">建立原生的 AI 学习模型</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.6vh;justify-content:center">
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">02</div>
+        <div class="step-title" style="font-weight:500;font-size:clamp(12px,.9vw,18px)">AI + LMS<br>深度融合</div>
+        <div class="step-desc" style="font-weight:300;font-size:clamp(11px,.7vw,14px);color:rgba(255,255,255,.5)">学习系统与 AI 无缝集成</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.6vh;justify-content:center">
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">03</div>
+        <div class="step-title" style="font-weight:500;font-size:clamp(12px,.9vw,18px)">学习画像<br>系统</div>
+        <div class="step-desc" style="font-weight:300;font-size:clamp(11px,.7vw,14px);color:rgba(255,255,255,.5)">全维度学生数据画像</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.6vh;justify-content:center">
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">04</div>
+        <div class="step-title" style="font-weight:500;font-size:clamp(12px,.9vw,18px)">AI Learning<br>Agent</div>
+        <div class="step-desc" style="font-weight:300;font-size:clamp(11px,.7vw,14px);color:rgba(255,255,255,.5)">智能代理驱动个性化教学</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="step glass-sm" style="display:flex;flex-direction:column;gap:.6vh;justify-content:center">
+        <div class="step-nb" style="font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,.55vw,13px);color:rgba(100,160,255,.4)">05</div>
+        <div class="step-title" style="font-weight:500;font-size:clamp(12px,.9vw,18px)">数据驱动<br>教学</div>
+        <div class="step-desc" style="font-weight:300;font-size:clamp(11px,.7vw,14px);color:rgba(255,255,255,.5)">让数据真正指导教学决策</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>MFA 希望探索：AI 时代，学校应该如何重新定义学习</div><div>09 / 12</div></div>
+</section>
+
+<!-- 10 · 数据/成果 -->
+<section class="slide">
+  <div class="chrome"><div>成果 · Impact</div><div>10 / 12</div></div>
+  <div class="inner" style="gap:2.5vh">
+    <div class="label-sm" data-anim>MFA 的价值</div>
+    <h2 class="h-hero" style="font-size:clamp(24px,3vw,54px)" data-anim>不仅是升学<br>更是面向未来的教育升级</h2>
+    <div class="grid-3" style="flex:1;min-height:0">
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.5vh;text-align:center;align-items:center;justify-content:center" data-anim>
+        <div class="num-lg" style="font-size:clamp(28px,3.6vw,60px)">AI + 教育</div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">用 AI 优化国内课程学习<br>释放时间培养国际能力</p>
+      </div>
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.5vh;text-align:center;align-items:center;justify-content:center" data-anim>
+        <div class="num-lg" style="font-size:clamp(28px,3.6vw,60px);background:linear-gradient(135deg,#f0c060,#f09060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">双轨并行</div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">高考 + 国际升学同步<br>给孩子多一个选择</p>
+      </div>
+      <div class="glass" style="display:flex;flex-direction:column;gap:1.5vh;text-align:center;align-items:center;justify-content:center" data-anim>
+        <div class="num-lg" style="font-size:clamp(28px,3.6vw,60px);background:linear-gradient(135deg,#7ac0ff,#a080ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">系统升级</div>
+        <p class="body-text" style="font-size:clamp(11px,.75vw,15px)">不只是课程<br>而是整个教学系统的进化</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>让每个孩子都能在 AI 时代找到自己的成长路径</div><div>10 / 12</div></div>
+</section>
+
+<!-- 11 · 总结定位 -->
+<section class="slide">
+  <div class="chrome"><div>总结 · Summary</div><div>11 / 12</div></div>
+  <div class="inner" style="justify-content:center;gap:3vh">
+    <div class="label-sm" data-anim>MFA 的最终定位</div>
+    <div class="glass-accent" style="text-align:center;padding:clamp(20px,3vh,40px) clamp(24px,3vw,48px)" data-anim>
+      <div style="font-size:clamp(20px,2.4vw,44px);font-weight:700;margin-bottom:1.5vh;background:linear-gradient(135deg,#f0f4ff,#a8b8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">AI 创新中本贯通项目</div>
+      <div style="font-size:clamp(32px,4vw,72px);font-weight:700;line-height:1.2;background:linear-gradient(135deg,#6a9eff,#a078ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">AI 赋能双轨升学系统</div>
+      <div style="font-size:clamp(18px,1.8vw,34px);color:rgba(255,255,255,.4);font-weight:300;margin-top:1.5vh">新加坡方向</div>
+    </div>
+    <div class="highlight-block" style="max-width:70%;align-self:center" data-anim>
+      <p class="body-text" style="text-align:center;margin:0;font-size:clamp(13px,1vw,20px)">这不仅仅是一个国际课程项目<br>更是 <strong style="color:rgba(180,210,255,.9)">AI 时代中国高中教育升级的新探索</strong></p>
+    </div>
+  </div>
+  <div class="foot"><div>Meridian Future Academy</div><div>11 / 12</div></div>
+</section>
+
+<!-- 12 · Closing -->
+<section class="slide" style="justify-content:center">
+  <div class="inner" style="justify-content:center;text-align:center;align-items:center;gap:3vh">
+    <img class="logo" src="images/mfa_logo.jpg" alt="MFA" style="height:clamp(48px,4vw,80px)" data-anim>
+    <div data-anim>
+      <h1 class="h-hero" style="font-size:clamp(28px,4.8vw,80px);font-weight:900" data-anim>重新定义国际教育</h1>
+      <p class="h-sub" style="font-size:clamp(16px,1.6vw,32px);margin-top:1.5vh" data-anim>AI 赋能 · 双轨升学 · 面向未来</p>
+    </div>
+    <div class="glass" style="padding:clamp(14px,2vh,28px) clamp(24px,3vw,48px)" data-anim>
+      <p class="body-text" style="margin:0;text-align:center">Meridian Future Academy</p>
+    </div>
+  </div>
+  <div class="foot" style="border:none"><div></div><div>— Thank You —</div></div>
+</section>
+
+</div>
+<div id="nav"></div>
+
+<script>
+(function(){const K='mfa-ppt-low-power',s=localStorage.getItem(K);window.__lowPowerMode=s==='1'||false;document.body.classList.toggle('low-power',window.__lowPowerMode);const h=document.getElementById('hint');function u(){if(h)h.textContent='← → · B '+(window.__lowPowerMode?'动态':'静态')+' · ESC'}window.__setLowPowerMode=function(o,p={}){window.__lowPowerMode=!!o;document.body.classList.toggle('low-power',window.__lowPowerMode);if(p.persist!==false)localStorage.setItem(K,window.__lowPowerMode?'1':'0');if(window.__lowPowerMode){document.getAnimations&&document.getAnimations().forEach(a=>a.cancel())}u();dispatchEvent(new CustomEvent('ppt-low-power-change',{detail:{on:window.__lowPowerMode}}));if(window.__playSlide)window.__playSlide(window.__currentSlideIndex||0)};u()})();
+</script>
+<script>
+const c=document.getElementById('bg-canvas'),gl=c.getContext('webgl',{alpha:true,antialias:false});
+if(gl){
+const vs='attribute vec2 p;void main(){gl_Position=vec4(p,0,1)}';
+const fs='precision highp float;uniform vec2 r;uniform float t;uniform vec2 m;void main(){vec2 u=gl_FragCoord.xy/r.xy;vec2 p=u*2.-1.;p.x*=r.x/r.y;float d=length(p-vec2(m.x*2.-1.,1.-m.y*2.-1.));float g=exp(-d*1.8);float o=sin(p.x*2.5+p.y*1.8+t*.2)*.5+.5;float o2=cos(p.x*1.2-p.y*2.2+t*.15)*.5+.5;float v=o*o2;float w=g*.04+.06;vec3 a=vec3(.06,.08,.18);vec3 b=vec3(.12,.18,.35);vec3 c=mix(a,b,v*.5+w*2.);vec3 d2=vec3(.25,.35,.55);c=mix(c,d2,w);c+=vec3(.04,.06,.1)*pow(v,3.);gl_FragColor=vec4(c,.7)}';
+const mk=(t,s)=>{const sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);return sh};
+const prog=gl.createProgram();gl.attachShader(prog,mk(gl.VERTEX_SHADER,vs));gl.attachShader(prog,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);gl.useProgram(prog);
+const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+const pos=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+const lR=gl.getUniformLocation(prog,'r'),lT=gl.getUniformLocation(prog,'t'),lM=gl.getUniformLocation(prog,'m');
+const mouse={x:.5,y:.5};addEventListener('mousemove',e=>{mouse.x=e.clientX/innerWidth;mouse.y=e.clientY/innerHeight});
+let w=0,h=0;
+function resize(){const d=Math.min(devicePixelRatio||1,2);w=innerWidth*d;h=innerHeight*d;c.width=w;c.height=h;gl.viewport(0,0,w,h)}
+addEventListener('resize',resize);resize();let raf=0,start=Date.now();
+function loop(){if(window.__lowPowerMode){raf=0;return}const s=(Date.now()-start)/1000;gl.uniform2f(lR,w,h);gl.uniform1f(lT,s);gl.uniform2f(lM,mouse.x,1-mouse.y);gl.drawArrays(gl.TRIANGLES,0,6);raf=requestAnimationFrame(loop)}
+loop();addEventListener('ppt-low-power-change',e=>{e.detail.on?raf&&cancelAnimationFrame(raf):loop()});
+}
+</script>
+<script>
+const deck=document.getElementById('deck');const slides=deck.querySelectorAll('.slide');const nav=document.getElementById('nav');
+let idx=0,total=slides.length,lock=false;deck.style.width=(total*100)+'vw';
+slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot';b.dataset.i=i;b.setAttribute('aria-label','Page '+(i+1));b.onclick=()=>go(i);nav.appendChild(b)});
+function go(n){if(lock)return;idx=Math.max(0,Math.min(total-1,n));window.__currentSlideIndex=idx;deck.style.transform='translateX('+(-idx*100)+'vw)';nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));if(window.__playSlide)setTimeout(()=>window.__playSlide(idx),350);lock=true;setTimeout(()=>lock=false,550)}
+let overviewOn=false;const ov=document.createElement('div');ov.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(10,14,26,.95);backdrop-filter:blur(16px);display:none;overflow-y:auto;padding:4vh 4vw';document.body.appendChild(ov);
+function buildOverview(){ov.innerHTML='';const g=document.createElement('div');g.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto';slides.forEach((s,i)=>{const cd=document.createElement('div');cd.style.cssText='cursor:pointer;border-radius:10px;overflow:hidden;border:2px solid '+(i===idx?'rgba(130,180,255,.6)':'rgba(255,255,255,.08)');cd.onmouseenter=()=>cd.style.borderColor='rgba(130,180,255,.4)';cd.onmouseleave=()=>cd.style.borderColor=i===idx?'rgba(130,180,255,.6)':'rgba(255,255,255,.08)';const w=document.createElement('div');w.style.cssText='width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;pointer-events:none;background:rgba(10,14,26,.8)';const cl=s.cloneNode(true);cl.style.cssText='width:100vw;height:100vh;transform:scale('+(1/4.5)+');transform-origin:top left;position:absolute;top:0;left:0;pointer-events:none';w.appendChild(cl);const lb=document.createElement('div');lb.style.cssText='padding:6px 10px;font-family:IBM Plex Mono,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)';lb.textContent=(i+1)+' / '+total;cd.appendChild(w);cd.appendChild(lb);cd.onclick=()=>{toggleOverview();go(i)};g.appendChild(cd)});ov.appendChild(g)}
+function toggleOverview(){overviewOn=!overviewOn;overviewOn?ov.style.display='block':ov.style.display='none'}
+addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();toggleOverview();return}if(e.key&&e.key.toLowerCase()==='b'&&!e.metaKey&&!e.ctrlKey&&!e.altKey){e.preventDefault();window.__setLowPowerMode(!window.__lowPowerMode);return}if(overviewOn)return;if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){go(idx+1);return}if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='ArrowUp')go(idx-1);if(e.key==='Home')go(0);if(e.key==='End')go(total-1)});
+let wt=null,wa=0;addEventListener('wheel',e=>{wa+=e.deltaY+e.deltaX;if(Math.abs(wa)>50){go(idx+(wa>0?1:-1));wa=0}clearTimeout(wt);wt=setTimeout(()=>wa=0,150)},{passive:true});
+let tx=0,ty=0;addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;const dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))go(idx+(dx<0?1:-1))},{passive:true});
+go(0);
+</script>
+<script type="module">
+let motion;
+try{motion=await import('./assets/motion.min.js')}catch(e1){try{motion=await import('https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm')}catch(e2){console.warn('[motion] failed',e1,e2)}}
+if(motion){const{animate,stagger}=motion;document.body.classList.add('motion-ready');const EASE=[.33,1,.68,1];const slides=[...document.querySelectorAll('.slide')];function ra(s){s.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='';el.style.transform=''})}function ps(i){const s=slides[i];if(!s)return;if(window.__lowPowerMode){ra(s);s.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='1';el.style.transform='none'});return}ra(s);const all=[...s.querySelectorAll('[data-anim]')];if(!all.length)return;if(i===0||i===total-1){animate(all,{opacity:[0,1],y:[20,0],scale:[.97,1]},{duration:.9,delay:stagger(.12,{start:.15}),easing:EASE})}else{animate(all,{opacity:[0,1],y:[18,0]},{duration:.7,delay:stagger(.08,{start:.12}),easing:EASE})}}window.__playSlide=ps;ps(0)}
+</script>
+</body>
+</html>
